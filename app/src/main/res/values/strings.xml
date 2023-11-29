@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">BudgetMaster</string>
+    <string name="bottombar_uebersicht">Übersicht</string>
+    <string name="bottombar_ausgaben">Ausgaben</string>
+    <string name="bottombar_Sparpläne">Sparpläne</string>
+    <string name="bottombar_Einstellungen">Einstellungen</string>
 </resources>
