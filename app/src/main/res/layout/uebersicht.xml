@@ -3,23 +3,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
+    android:id="@+id/container_ausgaben"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="?attr/actionBarSize">
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="0dp"
-        android:background="?android:attr/windowBackground"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/bottom_nav_menu"
-        tools:ignore="VisualLintBottomNav" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -47,7 +34,6 @@
             android:layout_height="244dp"
             android:layout_below="@id/textViewTitle"
             android:layout_marginTop="4dp"
-            android:background="@drawable/background_border_grey"
             android:orientation="vertical"
             android:padding="8dp">
 
@@ -80,7 +66,6 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/layoutAccountBalance"
             android:layout_marginTop="72dp"
-            android:background="@drawable/background_border_grey"
             android:orientation="vertical"
             android:padding="8dp">
 

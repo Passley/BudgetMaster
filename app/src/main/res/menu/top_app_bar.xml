@@ -3,17 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/favorite"
+        android:id="@+id/search_topbar"
         android:icon="@drawable/such_icon"
-        android:title="FAVORITE"
-        android:contentDescription="TEXT"
+        android:title="Search"
+        android:contentDescription="Search"
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/search"
+        android:id="@+id/menu_topbar"
         android:icon="@drawable/morevert_icon"
-        android:title="Search"
-        android:contentDescription="Text2"
+        android:title="Menu"
+        android:contentDescription="Menu"
         app:showAsAction="ifRoom" />
 
 
