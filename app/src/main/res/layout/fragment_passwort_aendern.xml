@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingsTwoFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <EditText
+            android:id="@+id/txt_passwortaendern_pass_bestaetigen"
+            android:layout_width="275dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="404dp"
+            android:ems="10"
+            android:hint="Passwort bestätigen"
+            android:inputType="textPassword"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_passwortaendern_ueber"
+            app:layout_constraintVertical_bias="0.900" />
+       <!--- Id sollte passen
+         Funktion: Checken, ob selbes Passwort wie im
+         Feld davor eingegeben wurden-->
+
+
+        <EditText
+            android:id="@+id/txt_passwortaendern_pass_neu"
+            android:layout_width="275dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="484dp"
+            android:ems="10"
+            android:hint="Neues Passwort"
+            android:inputType="textPassword"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_passwortaendern_ueber"
+            app:layout_constraintVertical_bias="0.900" />
+        <!--- Id sollte passen
+        Funktion: Soll dann bei betätigen des bestätigungs
+        Knopfes übernommen werden in die Datenbank-->
+
+
+
+        <EditText
+            android:id="@+id/txt_passwortaendern_pass_alt"
+            android:layout_width="275dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="552dp"
+            android:ems="10"
+            android:hint="Altes Passwort"
+            android:inputType="textPassword"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_passwortaendern_ueber"
+            app:layout_constraintVertical_bias="0.900" />
+            <!--- Id sollte passen
+            Funktion: Checken, ob selbes Passwort wie in der Datenbank-->
+
+
+        <TextView
+            android:id="@+id/text_passwortaendern_ueber"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:text="Passwort ändern"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.023" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_passworaendern_pass_fert"
+            android:layout_width="200dp"
+            android:layout_height="45dp"
+            android:elevation="40dp"
+            android:text="Fertig"
+            app:icon="@drawable/icon_settings"
+            app:iconPadding="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_passwortaendern_ueber"
+            app:layout_constraintVertical_bias="0.485" />
+        <!--- Soll entweder Prozess beenden oder auf Fehler
+        in den Vorherigen Feldern hinweißen
+        ID checken aber sollte hoffentlich passen-->
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--- Cadia Stands -->
