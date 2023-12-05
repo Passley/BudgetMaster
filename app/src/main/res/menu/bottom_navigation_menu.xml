@@ -3,25 +3,25 @@
     <item
         android:id="@+id/page_1"
         android:enabled="true"
-        android:icon="@drawable/uebersicht_icon"
+        android:icon="@drawable/icon_uebersicht"
         android:iconTint="@color/black"
         android:title="@string/bottombar_uebersicht"/>
     <item
         android:id="@+id/page_2"
         android:enabled="true"
-        android:icon="@drawable/ausgaben_icon"
+        android:icon="@drawable/icon_ausgaben"
         android:iconTint="@color/black"
         android:title="@string/bottombar_ausgaben"/>
     <item
         android:id="@+id/page_3"
         android:enabled="true"
-        android:icon="@drawable/sparplaene_icon"
+        android:icon="@drawable/icon_sparplaene"
         android:iconTint="@color/black"
         android:title="@string/bottombar_Sparpläne"/>
     <item
         android:id="@+id/page_4"
         android:enabled="true"
-        android:icon="@drawable/settings_icon"
+        android:icon="@drawable/icon_settings"
         android:iconTint="@color/black"
         android:title="@string/bottombar_Einstellungen"/>
 </menu>

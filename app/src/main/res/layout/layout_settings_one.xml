@@ -37,7 +37,7 @@
             android:layout_height="match_parent"
             android:layout_marginRight="45dp"
             android:scaleType="center"
-            app:srcCompat="@drawable/darkmode_icon"
+            app:srcCompat="@drawable/icon_darkmode"
             app:tint="@color/black" />
 
         <com.google.android.material.switchmaterial.SwitchMaterial
@@ -56,7 +56,7 @@
         android:layout_height="wrap_content"
         android:elevation="40dp"
         android:text="Kontoeinstellungen"
-        app:icon="@drawable/settings_icon"
+        app:icon="@drawable/icon_settings"
         app:iconPadding="10dp"
         app:layout_constraintBottom_toTopOf="@+id/linear_layout_settings"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,7 +70,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tutorial"
-        app:icon="@drawable/school_icon"
+        app:icon="@drawable/icon_school"
         app:iconPadding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
