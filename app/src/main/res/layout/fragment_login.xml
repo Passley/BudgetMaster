@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        >
 
         <Button
             android:id="@+id/button_anmelden"
@@ -63,7 +62,7 @@
             app:layout_constraintTop_toBottomOf="@+id/Eingabe_Password"
             app:layout_constraintVertical_bias="0.43" />
 
-        <com.google.android.gms.common.SignInButton
+   <!--     <com.google.android.gms.common.SignInButton
             android:id="@+id/sign_in_button"
             android:layout_width="227dp"
             android:layout_height="51dp"
@@ -74,7 +73,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button_anmelden"
             app:layout_constraintVertical_bias="0.242" />
-
+-->
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="wrap_content"

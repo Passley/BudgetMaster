@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.bugdetmaster.budgetmaster.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_uebersichtFragment"
+            app:destination="@id/uebersichtFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.bugdetmaster.budgetmaster.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_uebersichtFragment"
+            app:destination="@id/uebersichtFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/uebersichtFragment"
+        android:name="com.bugdetmaster.budgetmaster.UebersichtFragment"
+        android:label="fragment_uebersicht"
+        tools:layout="@layout/fragment_uebersicht" />
+    <fragment
+        android:id="@+id/settingsOneFragment"
+        android:name="com.bugdetmaster.budgetmaster.SettingsOneFragment"
+        android:label="fragment_settings_one"
+        tools:layout="@layout/fragment_settings_one" >
+        <action
+            android:id="@+id/action_settingsOneFragment_to_settingsTwoFragment"
+            app:destination="@id/settingsTwoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ausgabenFragment"
+        android:name="com.bugdetmaster.budgetmaster.AusgabenFragment"
+        android:label="fragment_ausgaben"
+        tools:layout="@layout/fragment_ausgaben" />
+    <fragment
+        android:id="@+id/sparplanFragment"
+        android:name="com.bugdetmaster.budgetmaster.SparplanFragment"
+        android:label="fragment_sparplan"
+        tools:layout="@layout/fragment_sparplan" >
+        <action
+            android:id="@+id/action_sparplanFragment_to_sparplanErstellenFragment"
+            app:destination="@id/sparplanErstellenFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/sparplanErstellenFragment"
+        android:name="com.bugdetmaster.budgetmaster.SparplanErstellenFragment"
+        android:label="fragment_sparplan_erstellen"
+        tools:layout="@layout/fragment_sparplan_erstellen" />
+    <fragment
+        android:id="@+id/settingsTwoFragment"
+        android:name="com.bugdetmaster.budgetmaster.SettingsTwoFragment"
+        android:label="fragment_settings_two"
+        tools:layout="@layout/fragment_settings_two" >
+        <action
+            android:id="@+id/action_settingsTwoFragment_to_settingsOneFragment"
+            app:destination="@id/settingsOneFragment" />
+    </fragment>
+</navigation>
