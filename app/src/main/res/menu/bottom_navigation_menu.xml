@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/page_1"
+        android:id="@+id/uebersichtFragment"
         android:enabled="true"
         android:icon="@drawable/icon_uebersicht"
         android:iconTint="@color/black"
         android:title="@string/bottombar_uebersicht"/>
     <item
-        android:id="@+id/page_2"
+        android:id="@+id/ausgabenFragment"
         android:enabled="true"
         android:icon="@drawable/icon_ausgaben"
         android:iconTint="@color/black"
         android:title="@string/bottombar_ausgaben"/>
     <item
-        android:id="@+id/page_3"
+        android:id="@+id/sparplanFragment"
         android:enabled="true"
         android:icon="@drawable/icon_sparplaene"
         android:iconTint="@color/black"
         android:title="@string/bottombar_Sparpläne"/>
     <item
-        android:id="@+id/page_4"
+        android:id="@+id/settingsOneFragment"
         android:enabled="true"
         android:icon="@drawable/icon_settings"
         android:iconTint="@color/black"

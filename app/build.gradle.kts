@@ -47,6 +47,8 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("com.google.android.gms:play-services-base:18.2.0")
     implementation("androidx.annotation:annotation:1.7.0")
+    implementation ("org.jetbrains.kotlin:kotlin-gradle-plugin:")
+    implementation ("androidx.navigation:navigation-safe-args-gradle-plugin:")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
     implementation("androidx.navigation:navigation-fragment:2.7.5")
