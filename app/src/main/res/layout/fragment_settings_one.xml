@@ -46,6 +46,7 @@
                 app:tint="@color/black" />
 
             <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switch_LightDark"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:checked="true"

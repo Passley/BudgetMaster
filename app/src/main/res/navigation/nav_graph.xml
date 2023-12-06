@@ -28,7 +28,11 @@
         tools:layout="@layout/fragment_register" >
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_registerFragment_to_uebersichtFragment"
             app:destination="@id/uebersichtFragment"
@@ -81,6 +85,43 @@
         tools:layout="@layout/fragment_settings_two" >
         <action
             android:id="@+id/action_settingsTwoFragment_to_settingsOneFragment"
-            app:destination="@id/settingsOneFragment" />
+            app:destination="@id/settingsOneFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_settingsTwoFragment_to_benutzername_aendern"
+            app:destination="@id/benutzername_aendern"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_settingsTwoFragment_to_konto_loeschen"
+            app:destination="@id/konto_loeschen"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_settingsTwoFragment_to_passwort_aendern"
+            app:destination="@id/passwort_aendern"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
+    <fragment
+        android:id="@+id/benutzername_aendern"
+        android:name="com.bugdetmaster.budgetmaster.Benutzername_aendern"
+        android:label="Benutzername_aendern" />
+    <fragment
+        android:id="@+id/konto_loeschen"
+        android:name="com.bugdetmaster.budgetmaster.Konto_loeschen"
+        android:label="Konto_loeschen" />
+    <fragment
+        android:id="@+id/passwort_aendern"
+        android:name="com.bugdetmaster.budgetmaster.Passwort_aendern"
+        android:label="Passwort_aendern" />
 </navigation>
