@@ -18,29 +18,29 @@ class SettingsOneFragment : Fragment(R.layout.fragment_settings_one) {
 
 
         view.findViewById<SwitchMaterial>(R.id.switch_LightDark).setOnClickListener {
-
-           /** if(view.findViewById<SwitchMaterial>(R.id.switch_LightDark).isEnabled){
+/**
+            if(view.findViewById<SwitchMaterial>(R.id.switch_LightDark).isEnabled){
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
                     //Text auf ENABLE DARKMODE
             } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                 //Text auf DISABLE DARKMODE
             }
+*/
 
-                */
         }
     }
 
     private fun lightDarkMode(switchMaterial: SwitchMaterial){
 
-       /** if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO){
-            boolean = false
+       if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO){
+           view?.findViewById<SwitchMaterial>(R.id.switch_LightDark)?.isEnabled = false
             //Text auf ENABLE DARKMODE
         } else if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES){
-            boolean = true
+           view?.findViewById<SwitchMaterial>(R.id.switch_LightDark)?.isEnabled = true
             //Text auf DISABLE DARKMODE
         }else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        } */
+        }
     }
 }

@@ -59,7 +59,15 @@
         android:id="@+id/ausgabenFragment"
         android:name="com.bugdetmaster.budgetmaster.AusgabenFragment"
         android:label="fragment_ausgaben"
-        tools:layout="@layout/fragment_ausgaben" />
+        tools:layout="@layout/fragment_ausgaben" >
+        <action
+            android:id="@+id/action_ausgabenFragment_to_ausgabeErstellenFragment"
+            app:destination="@id/ausgabeErstellenFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
     <fragment
         android:id="@+id/sparplanFragment"
         android:name="com.bugdetmaster.budgetmaster.SparplanFragment"
@@ -124,4 +132,8 @@
         android:id="@+id/passwort_aendern"
         android:name="com.bugdetmaster.budgetmaster.Passwort_aendern"
         android:label="Passwort_aendern" />
+    <fragment
+        android:id="@+id/ausgabeErstellenFragment"
+        android:name="com.bugdetmaster.budgetmaster.AusgabeErstellenFragment"
+        android:label="AusgabeErstellenFragment" />
 </navigation>
