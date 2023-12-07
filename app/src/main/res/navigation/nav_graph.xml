@@ -136,4 +136,9 @@
         android:id="@+id/ausgabeErstellenFragment"
         android:name="com.bugdetmaster.budgetmaster.AusgabeErstellenFragment"
         android:label="AusgabeErstellenFragment" />
+    <fragment
+        android:id="@+id/TESTFragment"
+        android:name="com.bugdetmaster.budgetmaster.TESTFragment"
+        android:label="fragment_t_e_s_t"
+        tools:layout="@layout/fragment_t_e_s_t" />
 </navigation>
