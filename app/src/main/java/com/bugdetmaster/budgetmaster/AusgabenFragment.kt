@@ -14,7 +14,12 @@ class AusgabenFragment : Fragment(R.layout.fragment_ausgaben) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+        /**
+         * Mit der kommenden Methode wird der Button "Hinzufügen" mit der ID addAusgabeButton angesprochen.
+         * Dieser hat mit dem setClickListener-Methode die Aufgabe, den Benutzer auf das Fragment AusgabeErstellenFragment zu verweisen.
+         * Der Navigationsgraph kennt alle möglichen Routen und die action Variable erstellt die Route vom aktuellen Fragment zum AusgabeErstellenFragment.
+         * Die findNavController Klasse führt dann die Route aus.
+         */
         view.findViewById<Button>(R.id.addAusgabeButton).setOnClickListener {
             val action = AusgabenFragmentDirections.actionAusgabenFragmentToAusgabeErstellenFragment()
             findNavController().navigate(action)
