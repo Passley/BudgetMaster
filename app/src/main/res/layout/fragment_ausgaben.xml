@@ -10,25 +10,24 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
+        <RelativeLayout
+            android:id="@+id/relativeLayout2"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/light_blue_600"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/button_design_1"
             android:orientation="vertical"
             android:padding="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/addAusgabeButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.138"
-            tools:ignore="ExtraText,MissingConstraints">
-
+            app:layout_constraintVertical_bias="0.416">
 
             <TextView
                 android:id="@+id/Ausgabe"
-                android:layout_width="match_parent"
+                android:layout_width="201dp"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -37,47 +36,58 @@
 
             <TextView
                 android:id="@+id/Beschreibung"
-                android:layout_width="match_parent"
+                android:layout_width="329dp"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:layout_below="@+id/Ausgabe"
+                android:layout_marginTop="24dp"
+                android:baselineAligned="false"
+                android:textSize="16sp" />
 
-                />
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/Datum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/Beschreibung"
+                android:layout_below="@+id/Beitrag"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="right"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="159dp"
+                android:ems="10"
+                android:gravity="right"
+                android:inputType="date"
+                tools:text="@tools:sample/date/ddmmyy" />
 
             <TextView
                 android:id="@+id/Beitrag"
-                android:layout_width="381dp"
-                android:layout_height="wrap_content"
+                android:layout_width="138dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="72dp"
+                android:layout_marginEnd="24dp"
+                android:layout_toEndOf="@+id/Ausgabe"
                 android:textColor="#0000FF"
                 android:textSize="14sp"
                 android:textStyle="italic" />
 
-            <TextView
-                android:id="@+id/Datum"
-                android:layout_width="381dp"
-                android:layout_height="wrap_content"
-                android:textColor="#0000FF"
-                android:textSize="14sp"
-                android:textStyle="italic" />
+        </RelativeLayout>
 
-
-        </LinearLayout>
-
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/addAusgabeButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="153dp"
+            android:layout_height="51dp"
             android:layout_margin="16dp"
             android:layout_marginBottom="96dp"
-            android:background="@color/darkmode_schriftfarbe1"
-            android:backgroundTint="@color/darkmode_schriftfarbe1"
-            android:text="@string/hinzuf_gen"
-            android:textColor="@color/black"
-            app:icon="@android:drawable/ic_menu_add"
+            android:background="@drawable/button_design_2"
+            android:text="+ hinzufügen"
+            android:textColor="@color/darkmode_schriftfarbe1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:layout_constraintTop_toBottomOf="@id/relativeLayout2"
             tools:ignore="MissingConstraints" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

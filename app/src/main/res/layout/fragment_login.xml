@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         >
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_anmelden"
             android:layout_width="157dp"
             android:layout_height="46dp"
@@ -20,7 +20,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Eingabe_Password"
-            app:layout_constraintVertical_bias="0.204" />
+            app:layout_constraintVertical_bias="0.204"
+            android:background="@drawable/button_design_2"
+            />
 
         <EditText
             android:id="@+id/Eingabe_Password"

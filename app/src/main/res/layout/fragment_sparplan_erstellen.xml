@@ -40,7 +40,7 @@
             app:layout_constraintTop_toBottomOf="@+id/Eingabe_Sparziel"
             app:layout_constraintVertical_bias="0.022" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/Button_Sparplan_Erstellen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -50,7 +50,8 @@
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Eingabe_Zeitraum"
-            app:layout_constraintVertical_bias="0.089" />
+            app:layout_constraintVertical_bias="0.089"
+            android:background="@drawable/button_design_2"/>
 
         <TextView
             android:id="@+id/text_Sparplan_erstellen"
