@@ -10,74 +10,98 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/light_blue_600"
+        <RelativeLayout
+            android:id="@+id/relativeLayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="143dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/button_design_1"
             android:orientation="vertical"
             android:padding="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/addAusgabeButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.138"
-            tools:ignore="ExtraText,MissingConstraints">
-
+            app:layout_constraintVertical_bias="0.416">
 
             <TextView
                 android:id="@+id/Ausgabe"
-                android:layout_width="match_parent"
+                android:layout_width="227dp"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:textStyle="bold"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
 
-                />
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:text="Einkauf"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/Datum"
+                android:layout_width="wrap_content"
+                android:layout_height="43dp"
+                android:layout_above="@+id/Beschreibung"
+                android:layout_below="@+id/Beitrag"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="right"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:ems="10"
+                android:gravity="right"
+                android:inputType="date"
+                android:text="11.11.223"
+                android:textSize="14sp"
+                tools:text="@tools:sample/date/ddmmyy" />
+
+            <TextView
+                android:id="@+id/Beitrag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_toEndOf="@+id/Ausgabe"
+                android:gravity="right"
+                android:text="20€"
+                android:textColor="#0000FF"
+                android:textSize="14sp"
+                android:textStyle="italic" />
 
             <TextView
                 android:id="@+id/Beschreibung"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:baselineAligned="false"
+                android:text="Apfel, Banane"
+                android:textSize="14sp" />
 
-                />
+        </RelativeLayout>
 
-            <TextView
-                android:id="@+id/Beitrag"
-                android:layout_width="381dp"
-                android:layout_height="wrap_content"
-                android:textColor="#0000FF"
-                android:textSize="14sp"
-                android:textStyle="italic" />
-
-            <TextView
-                android:id="@+id/Datum"
-                android:layout_width="381dp"
-                android:layout_height="wrap_content"
-                android:textColor="#0000FF"
-                android:textSize="14sp"
-                android:textStyle="italic" />
-
-
-        </LinearLayout>
-
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/addAusgabeButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="153dp"
+            android:layout_height="51dp"
             android:layout_margin="16dp"
-            android:layout_marginBottom="96dp"
-            android:background="@color/darkmode_schriftfarbe1"
-            android:backgroundTint="@color/darkmode_schriftfarbe1"
-            android:text="@string/hinzuf_gen"
-            android:textColor="@color/black"
-            app:icon="@android:drawable/ic_menu_add"
+            android:layout_marginBottom="112dp"
+            android:background="@drawable/button_design_2"
+            android:text="+ hinzufügen"
+            android:textColor="@color/darkmode_schriftfarbe1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:layout_constraintTop_toBottomOf="@id/relativeLayout2"
             tools:ignore="MissingConstraints" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

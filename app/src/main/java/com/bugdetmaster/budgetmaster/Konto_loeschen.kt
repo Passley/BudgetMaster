@@ -31,12 +31,4 @@ class Konto_loeschen : Fragment(R.layout.fragment_konto_loeschen) {
         return inflater.inflate(R.layout.fragment_konto_loeschen, container, false)
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        // Zeige die Navigationsleiste wieder an, wenn das Fragment zerstört wird
-        activity?.findViewById<BottomNavigationView>(R.id.bottom_nav)?.visibility = View.VISIBLE
-        (requireActivity() as? AppCompatActivity)?.supportActionBar?.show()
-        (requireActivity().findViewById(R.id.topAppBar) as? MaterialToolbar)?.visibility = View.VISIBLE
-
-    }
 }

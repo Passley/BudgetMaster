@@ -35,12 +35,4 @@ class Benutzername_aendern : Fragment(R.layout.fragment_benutzername_aendern) {
 
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        // Zeige die Navigationsleiste wieder an, wenn das Fragment zerstört wird
-        activity?.findViewById<BottomNavigationView>(R.id.bottom_nav)?.visibility = View.VISIBLE
-        (requireActivity() as? AppCompatActivity)?.supportActionBar?.show()
-        (requireActivity().findViewById(R.id.topAppBar) as? MaterialToolbar)?.visibility = View.VISIBLE
-
-    }
 }
