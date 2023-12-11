@@ -65,4 +65,7 @@ dependencies {
 
     // Jetpack Compose Integration
     implementation("androidx.navigation:navigation-compose:$nav_version")
+
+    // REST CALL FUNCTION
+    implementation("com.squareup.okhttp3:okhttp:3.8.1")
 }
