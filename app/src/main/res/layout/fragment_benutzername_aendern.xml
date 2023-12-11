@@ -41,11 +41,13 @@ android:layout_height="match_parent">
         app:layout_constraintVertical_bias="0.023" />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:background="@drawable/button_design_1"
+        android:textAllCaps="false"
         android:id="@+id/btn_benutzeraendern_bestaetigen"
-        android:layout_width="200dp"
-        android:layout_height="45dp"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
         android:elevation="40dp"
-        android:text="bestätigen"
+        android:text="Bestätigen"
         app:icon="@drawable/icon_settings"
         app:iconPadding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -79,9 +79,11 @@
             app:layout_constraintVertical_bias="0.023" />
 
         <androidx.appcompat.widget.AppCompatButton
+            android:background="@drawable/button_design_1"
+            android:textAllCaps="false"
             android:id="@+id/btn_passworaendern_pass_fert"
-            android:layout_width="200dp"
-            android:layout_height="45dp"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
             android:elevation="40dp"
             android:text="Fertig"
             app:icon="@drawable/icon_settings"

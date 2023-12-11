@@ -35,10 +35,12 @@
         app:layout_constraintTop_toBottomOf="@+id/Eingabe_Sparziel"
         app:layout_constraintVertical_bias="0.022" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
+        android:background="@drawable/button_design_1"
+        android:textAllCaps="false"
         android:id="@+id/Button_Sparplan_Erstellen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
         android:text="Sparplan erstellen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

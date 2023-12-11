@@ -12,6 +12,8 @@
 
 
         <androidx.appcompat.widget.AppCompatButton
+            android:background="@drawable/button_design_1"
+            android:textAllCaps="false"
             android:id="@+id/btn_settings2_Abmelden"
             android:layout_width="200dp"
             android:layout_height="45dp"
@@ -28,6 +30,8 @@
         <!--- Soll zum Anmelde Bildschirm führen -->
 
         <androidx.appcompat.widget.AppCompatButton
+            android:textAllCaps="false"
+            android:background="@drawable/button_design_1"
             android:id="@+id/btn_settings2_Kon_loeschen"
             android:layout_width="200dp"
             android:layout_height="45dp"
@@ -46,6 +50,8 @@
          Bildschirm dafür aufsetzen soll.-->
 
         <androidx.appcompat.widget.AppCompatButton
+            android:background="@drawable/button_design_1"
+            android:textAllCaps="false"
             android:id="@+id/btn_settings2Pas_aendern"
             android:layout_width="200dp"
             android:layout_height="45dp"
@@ -63,6 +69,8 @@
 
 
         <androidx.appcompat.widget.AppCompatButton
+            android:background="@drawable/button_design_1"
+            android:textAllCaps="false"
             android:id="@+id/btn_settings2_Benut_aendern"
             android:layout_width="200dp"
             android:layout_height="45dp"

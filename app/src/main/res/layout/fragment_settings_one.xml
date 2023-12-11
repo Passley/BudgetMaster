@@ -12,8 +12,8 @@
 
         <ImageView
             android:id="@+id/imageView4"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
             app:flow_horizontalBias="0.100"
             app:layout_constraintBottom_toTopOf="@+id/btn_tutorial"
@@ -28,7 +28,7 @@
         <LinearLayout
             android:id="@+id/linear_layout_settings"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:gravity="center"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -40,7 +40,7 @@
                 android:id="@+id/lightDark_image"
                 android:layout_width="40dp"
                 android:layout_height="match_parent"
-                android:layout_marginRight="45dp"
+                android:layout_marginRight="15dp"
                 android:scaleType="center"
                 app:srcCompat="@drawable/icon_darkmode"
                 app:tint="@color/black" />
@@ -56,9 +56,11 @@
 
         </LinearLayout>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
+            android:background="@drawable/button_design_1"
+            android:textAllCaps="false"
             android:id="@+id/btn_kontosettings"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:elevation="40dp"
             android:text="Kontoeinstellungen"
@@ -71,10 +73,12 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.90" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
+            android:textAllCaps="false"
+            android:background="@drawable/button_design_1"
             android:id="@+id/btn_tutorial"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
             android:text="Tutorial"
             app:icon="@drawable/icon_school"
             app:iconPadding="10dp"

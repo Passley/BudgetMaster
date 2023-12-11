@@ -18,9 +18,11 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.644" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
+        android:background="@drawable/button_design_1"
+        android:textAllCaps="false"
         android:id="@+id/button_sparplan_loeschen"
-        android:layout_width="178dp"
+        android:layout_width="150dp"
         android:layout_height="40dp"
         android:text="Sparplan löschen"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -42,10 +44,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.968" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
+        android:background="@drawable/button_design_1"
+        android:textAllCaps="false"
         android:id="@+id/button_sparplan_erstellen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
         android:text="Sparplan erstellen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
