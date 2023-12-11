@@ -85,7 +85,14 @@
         android:id="@+id/sparplanErstellenFragment"
         android:name="com.bugdetmaster.budgetmaster.SparplanErstellenFragment"
         android:label="fragment_sparplan_erstellen"
-        tools:layout="@layout/fragment_sparplan_erstellen" />
+        tools:layout="@layout/fragment_sparplan_erstellen" >
+        <action
+            android:id="@+id/action_sparplanErstellenFragment_to_passwort_aendern"
+            app:destination="@id/passwort_aendern" />
+        <action
+            android:id="@+id/action_sparplanErstellenFragment_to_sparplanFragment"
+            app:destination="@id/sparplanFragment" />
+    </fragment>
     <fragment
         android:id="@+id/settingsTwoFragment"
         android:name="com.bugdetmaster.budgetmaster.SettingsTwoFragment"
@@ -119,21 +126,43 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_settingsTwoFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/benutzername_aendern"
         android:name="com.bugdetmaster.budgetmaster.Benutzername_aendern"
-        android:label="Benutzername_aendern" />
+        android:label="Benutzername_aendern" >
+        <action
+            android:id="@+id/action_benutzername_aendern_to_settingsTwoFragment"
+            app:destination="@id/settingsTwoFragment" />
+    </fragment>
     <fragment
         android:id="@+id/konto_loeschen"
         android:name="com.bugdetmaster.budgetmaster.Konto_loeschen"
-        android:label="Konto_loeschen" />
+        android:label="Konto_loeschen" >
+        <action
+            android:id="@+id/action_konto_loeschen_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
     <fragment
         android:id="@+id/passwort_aendern"
         android:name="com.bugdetmaster.budgetmaster.Passwort_aendern"
-        android:label="Passwort_aendern" />
+        android:label="Passwort_aendern" >
+        <action
+            android:id="@+id/action_passwort_aendern_to_settingsTwoFragment"
+            app:destination="@id/settingsTwoFragment" />
+    </fragment>
     <fragment
         android:id="@+id/ausgabeErstellenFragment"
         android:name="com.bugdetmaster.budgetmaster.AusgabeErstellenFragment"
-        android:label="AusgabeErstellenFragment" />
+        android:label="AusgabeErstellenFragment" >
+        <action
+            android:id="@+id/action_ausgabeErstellenFragment_to_ausgabenFragment"
+            app:destination="@id/ausgabenFragment" />
+        <action
+            android:id="@+id/action_ausgabeErstellenFragment_to_ausgabenFragment2"
+            app:destination="@id/ausgabenFragment" />
+    </fragment>
 </navigation>

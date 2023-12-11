@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.switchmaterial.SwitchMaterial
 
 
@@ -18,6 +20,11 @@ class SettingsOneFragment : Fragment(R.layout.fragment_settings_one) {
          * Die Methode [lightDarkMode] wird bei jedem Aufruf des Fragments ausgeführt.
          */
         lightDarkMode(view.findViewById<SwitchMaterial>(R.id.switch_LightDark))
+
+        view.findViewById<TextView>(R.id.btn_kontosettings).setOnClickListener {
+            val action = SettingsOneFragmentDirections.actionSettingsOneFragmentToSettingsTwoFragment()
+            findNavController().navigate(action)
+        }
 
         /**
          * Mit der kommenden Methode wird der Switch mit der ID [switch_LightDark] angesprochen.

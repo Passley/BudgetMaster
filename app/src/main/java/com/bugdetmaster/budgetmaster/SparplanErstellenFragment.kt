@@ -5,7 +5,43 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.findNavController
+import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class SparplanErstellenFragment : Fragment(R.layout.fragment_sparplan_erstellen) {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Verstecke die Navigationsleiste, wenn dieses Fragment angezeigt wird
+        activity?.findViewById<BottomNavigationView>(R.id.bottom_nav)?.visibility = View.GONE
+        (requireActivity() as? AppCompatActivity)?.supportActionBar?.hide()
+        (requireActivity().findViewById(R.id.topAppBar) as? MaterialToolbar)?.visibility = View.GONE
 
+        return super.onCreateView(inflater, container, savedInstanceState)
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+        view.findViewById<Button>(R.id.Button_Sparplan_Erstellen).setOnClickListener {
+            val action = SparplanErstellenFragmentDirections.actionSparplanErstellenFragmentToSparplanFragment()
+            findNavController().navigate(action)
+        }
+        view.findViewById<Button>(R.id.button_Sparplan_Abbrechen).setOnClickListener {
+            val action = SparplanErstellenFragmentDirections.actionSparplanErstellenFragmentToSparplanFragment()
+            findNavController().navigate(action)
+        }
+    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        // Zeige die Navigationsleiste wieder an, wenn das Fragment zerstört wird
+        activity?.findViewById<BottomNavigationView>(R.id.bottom_nav)?.visibility = View.VISIBLE
+        (requireActivity() as? AppCompatActivity)?.supportActionBar?.show()
+        (requireActivity().findViewById(R.id.topAppBar) as? MaterialToolbar)?.visibility = View.VISIBLE
+
+    }
 }
