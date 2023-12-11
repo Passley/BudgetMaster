@@ -13,7 +13,7 @@
         <RelativeLayout
             android:id="@+id/relativeLayout2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="143dp"
             android:layout_marginStart="4dp"
             android:layout_marginEnd="4dp"
             android:background="@drawable/button_design_1"
@@ -27,49 +27,64 @@
 
             <TextView
                 android:id="@+id/Ausgabe"
-                android:layout_width="201dp"
+                android:layout_width="227dp"
                 android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:text="Einkauf"
                 android:textSize="18sp"
-                android:textStyle="bold"
-
-                />
-
-            <TextView
-                android:id="@+id/Beschreibung"
-                android:layout_width="329dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/Ausgabe"
-                android:layout_marginTop="24dp"
-                android:baselineAligned="false"
-                android:textSize="16sp" />
+                android:textStyle="bold" />
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/Datum"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="43dp"
                 android:layout_above="@+id/Beschreibung"
                 android:layout_below="@+id/Beitrag"
                 android:layout_alignParentEnd="true"
                 android:layout_gravity="right"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="159dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
                 android:ems="10"
                 android:gravity="right"
                 android:inputType="date"
+                android:text="11.11.223"
+                android:textSize="14sp"
                 tools:text="@tools:sample/date/ddmmyy" />
 
             <TextView
                 android:id="@+id/Beitrag"
-                android:layout_width="138dp"
-                android:layout_height="24dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="72dp"
-                android:layout_marginEnd="24dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
                 android:layout_toEndOf="@+id/Ausgabe"
+                android:gravity="right"
+                android:text="20€"
                 android:textColor="#0000FF"
                 android:textSize="14sp"
                 android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/Beschreibung"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:baselineAligned="false"
+                android:text="Apfel, Banane"
+                android:textSize="14sp" />
 
         </RelativeLayout>
 
@@ -87,5 +102,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/relativeLayout2"
             tools:ignore="MissingConstraints" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

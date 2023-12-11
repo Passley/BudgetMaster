@@ -24,7 +24,8 @@
             app:layout_constraintVertical_bias="0.644" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:background="@drawable/button_design_1"
+            android:background="@drawable/button_design_2"
+            android:textColor="@color/darkmode_schriftfarbe1"
             android:textAllCaps="false"
             android:id="@+id/button_sparplan_loeschen"
             android:layout_width="150dp"
@@ -50,7 +51,8 @@
             app:layout_constraintVertical_bias="0.968" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:background="@drawable/button_design_1"
+            android:background="@drawable/button_design_2"
+            android:textColor="@color/darkmode_schriftfarbe1"
             android:textAllCaps="false"
             android:id="@+id/button_sparplan_erstellen"
             android:layout_width="150dp"

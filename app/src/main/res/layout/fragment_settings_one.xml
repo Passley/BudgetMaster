@@ -23,7 +23,8 @@
 
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.890"
-            app:srcCompat="@drawable/button_design_1" />
+            app:srcCompat="@drawable/button_design_2"
+           />
 
         <LinearLayout
             android:id="@+id/linear_layout_settings"
@@ -43,7 +44,7 @@
                 android:layout_marginRight="15dp"
                 android:scaleType="center"
                 app:srcCompat="@drawable/icon_darkmode"
-                app:tint="@color/black" />
+                app:tint="@color/darkmode_schriftfarbe1" />
 
             <com.google.android.material.switchmaterial.SwitchMaterial
                 android:id="@+id/switch_LightDark"
@@ -51,13 +52,16 @@
                 android:layout_height="match_parent"
                 android:checked="true"
                 android:text="Mode"
+                android:textColor="@color/darkmode_schriftfarbe1"
                 tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="0dp" />
+                tools:layout_editor_absoluteY="0dp"
+                />
 
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:background="@drawable/button_design_1"
+            android:background="@drawable/button_design_2"
+            android:textColor="@color/darkmode_schriftfarbe1"
             android:textAllCaps="false"
             android:id="@+id/btn_kontosettings"
             android:layout_width="150dp"
@@ -75,7 +79,8 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:textAllCaps="false"
-            android:background="@drawable/button_design_1"
+            android:background="@drawable/button_design_2"
+            android:textColor="@color/darkmode_schriftfarbe1"
             android:id="@+id/btn_tutorial"
             android:layout_width="150dp"
             android:layout_height="40dp"
