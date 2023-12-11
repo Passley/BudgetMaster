@@ -50,10 +50,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
          * Der Navigationsgraph[nav_graph] kennt alle möglichen Routen vom aktuellen Fragment. Die action Variable erstellt die Route vom aktuellen Fragment zum [UebersichtFragment].
          * Die findNavController Klasse führt dann die Route aus.
         */
-        view.findViewById<Button>(R.id.sign_in_button).setOnClickListener {
+        /**view.findViewById<Button>(R.id.sign_in_button).setOnClickListener {
             val action = LoginFragmentDirections.actionLoginFragmentToUebersichtFragment()
             findNavController().navigate(action)
-        }
+        } */
 
     }
     override fun onDestroyView() {
