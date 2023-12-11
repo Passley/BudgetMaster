@@ -61,7 +61,7 @@
             android:textAllCaps="false"
             android:id="@+id/btn_kontosettings"
             android:layout_width="150dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:elevation="40dp"
             android:text="Kontoeinstellungen"
             app:icon="@drawable/icon_settings"
