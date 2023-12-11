@@ -46,12 +46,13 @@
                     android:layout_width="388dp"
                     android:layout_height="wrap_content"
                     android:text="Kontostände:"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    />
 
                 <!-- Hier könnten die aktuellen Kontostände aufgelistet werden -->
                 <!-- Beispiel: -->
 
-                <TextView
+               <!-- <TextView
                     android:layout_width="371dp"
                     android:layout_height="43dp"
                     android:layout_marginStart="16dp"
@@ -61,7 +62,37 @@
                     android:layout_width="372dp"
                     android:layout_height="61dp"
                     android:layout_marginStart="16dp"
-                    android:text="Konto 2: $250" />
+                    android:text="Konto 2: $250" /> -->
+
+                <RelativeLayout
+                    android:id="@+id/progress_fragment"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_marginLeft="100dp">
+
+                    <ProgressBar
+                        android:id="@+id/progress_bar"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/circle_shape"
+                        android:indeterminate="false"
+                        android:progressDrawable="@drawable/circle_progress_bar"
+                        android:textAlignment="center"/>
+
+                    <TextView
+                        android:id="@+id/progressbar_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="center"
+                        android:text="---"
+                        android:textSize="28dp"
+                        android:textStyle="bold"/>
+
+                </RelativeLayout>
 
             </LinearLayout>
 
