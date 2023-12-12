@@ -18,19 +18,26 @@ class UebersichtFragment : Fragment(R.layout.fragment_uebersicht) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Initialisiere ProgressBar und TextView
         progressBar = view.findViewById(R.id.progress_bar)
         progressText = view.findViewById(R.id.progressbar_text)
 
-
+        // Handler wird verwendet, um die ProgressBar mit einem animierten Fortschritt zu aktualisieren
         val handler = Handler()
+
+        // PostDelayed-Methode startet die Aktualisierung nach einer Verzögerung
         handler.postDelayed(object: Runnable{
             override fun run() {
+                // Prüfe, ob der Fortschritt kleiner oder gleich 100 ist
                 if (percentage <= 100) {
+                    // Setze den Fortschrittstext und aktualisiere die ProgressBar
                     progressText.text = "" + percentage
                     progressBar.setProgress(percentage)
                     percentage++
+                    // Wiederhole die Aktualisierung nach einer Verzögerung
                     handler.postDelayed(this, 200)
                 } else {
+                    // Entferne den Callback, wenn der Fortschritt 100 erreicht hat
                     handler.removeCallbacks(this)
                 }
             }

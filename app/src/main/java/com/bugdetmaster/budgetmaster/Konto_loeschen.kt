@@ -15,6 +15,12 @@ class Konto_loeschen : Fragment(R.layout.fragment_konto_loeschen) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        /**
+         * Mit der kommenden Methode wird der Button "Bestätigen" mit der ID btn_kontoloesch_bestaetigen angesprochen.
+         * Dieser hat mit dem setClickListener-Methode die Aufgabe, den Benutzer auf das Fragment LoginFragment zu verweisen.
+         * Der Navigationsgraph kennt alle möglichen Routen und die action Variable erstellt die Route vom aktuellen Fragment zum LoginFragment.
+         * Die findNavController Klasse führt dann die Route aus.
+         */
         view.findViewById<TextView>(R.id.btn_kontoloesch_bestaetigen).setOnClickListener {
             val action = Konto_loeschenDirections.actionKontoLoeschenToLoginFragment()
             findNavController().navigate(action)
@@ -25,9 +31,8 @@ class Konto_loeschen : Fragment(R.layout.fragment_konto_loeschen) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        // Verstecke die Navigationsleiste, wenn dieses Fragment angezeigt wird
         activity?.findViewById<BottomNavigationView>(R.id.bottom_nav)?.visibility = View.GONE
-        (requireActivity() as? AppCompatActivity)?.supportActionBar?.hide()
-        (requireActivity().findViewById(R.id.topAppBar) as? MaterialToolbar)?.visibility = View.GONE
         return inflater.inflate(R.layout.fragment_konto_loeschen, container, false)
     }
 

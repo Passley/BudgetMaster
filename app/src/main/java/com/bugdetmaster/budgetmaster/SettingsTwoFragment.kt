@@ -19,8 +19,6 @@ class SettingsTwoFragment : Fragment(R.layout.fragment_settings_two) {
     ): View? {
         // Verstecke die Navigationsleiste, wenn dieses Fragment angezeigt wird
         activity?.findViewById<BottomNavigationView>(R.id.bottom_nav)?.visibility = View.GONE
-        (requireActivity() as? AppCompatActivity)?.supportActionBar?.hide()
-        (requireActivity().findViewById(R.id.topAppBar) as? MaterialToolbar)?.visibility = View.GONE
 
         return super.onCreateView(inflater, container, savedInstanceState)
     }
@@ -44,14 +42,21 @@ class SettingsTwoFragment : Fragment(R.layout.fragment_settings_two) {
             val action = SettingsTwoFragmentDirections.actionSettingsTwoFragmentToBenutzernameAendern()
             findNavController().navigate(action)
         }
+        view.findViewById<TextView>(R.id.sett_abbrechen).setOnClickListener {
+            // Zeige die Navigationsleiste wieder an
+            activity?.findViewById<BottomNavigationView>(R.id.bottom_nav)?.visibility = View.VISIBLE
+
+            // Zeige die ActionBar wieder an
+            (requireActivity() as? AppCompatActivity)?.supportActionBar?.show()
+
+            // Zeige die Top-Bar wieder an
+            (requireActivity().findViewById(R.id.topAppBar) as? MaterialToolbar)?.visibility = View.VISIBLE
+
+            // Navigiere zum vorherigen Fragment
+            val action = SettingsTwoFragmentDirections.actionSettingsTwoFragmentToSettingsOneFragment()
+            findNavController().navigate(action)
+        }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        // Zeige die Navigationsleiste wieder an, wenn das Fragment zerstört wird
-        activity?.findViewById<BottomNavigationView>(R.id.bottom_nav)?.visibility = View.VISIBLE
-        (requireActivity() as? AppCompatActivity)?.supportActionBar?.show()
-        (requireActivity().findViewById(R.id.topAppBar) as? MaterialToolbar)?.visibility = View.VISIBLE
 
-    }
 }

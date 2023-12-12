@@ -21,13 +21,17 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Setze das Layout der Aktivität
         setContentView(R.layout.activity_main)
 
+        // Finde das NavHostFragment in der Fragment-Hierarchie
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+
+        // Initialisiere den NavController mit dem NavHostFragment
         navController = navHostFragment.findNavController()
 
-        //setupActionBarWithNavController(navController)
-
+        // Verknüpfe die BottomNavigationView mit dem NavController
         findViewById<BottomNavigationView>(R.id.bottom_nav).setupWithNavController(navController)
 
 
