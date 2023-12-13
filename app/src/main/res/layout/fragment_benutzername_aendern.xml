@@ -11,6 +11,9 @@ android:layout_width="match_parent"
 android:layout_height="match_parent">
 
 
+    <!--- neuer Benutzername soll in die Datenbank -->
+
+
     <EditText
         android:id="@+id/txt_benutzeraendern_bname_neu"
         android:layout_width="275dp"
@@ -23,9 +26,7 @@ android:layout_height="match_parent">
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_benutzeraendern_ueber"
-        app:layout_constraintVertical_bias="0.900" />
-    <!--- neuer Benutzername soll in die Datenbank -->
-
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/text_benutzeraendern_ueber"
@@ -36,27 +37,28 @@ android:layout_height="match_parent">
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.036" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:background="@drawable/button_design_2"
-        android:textColor="@color/darkmode_schriftfarbe1"
-        android:textAllCaps="false"
         android:id="@+id/btn_benutzeraendern_bestaetigen"
         android:layout_width="150dp"
         android:layout_height="40dp"
+        android:background="@drawable/button_design_2"
         android:elevation="40dp"
         android:text="Bestätigen"
+        android:textAllCaps="false"
+        android:textColor="@color/darkmode_schriftfarbe1"
         app:icon="@drawable/icon_settings"
         app:iconPadding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_benutzeraendern_ueber"
-        app:layout_constraintVertical_bias="0.246" />
+        app:layout_constraintVertical_bias="0.219" />
     <!--- Hier soll es zu dem Fragment Benutzername aendern führen -->
 
 

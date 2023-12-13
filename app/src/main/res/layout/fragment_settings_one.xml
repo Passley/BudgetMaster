@@ -41,9 +41,9 @@
                 android:id="@+id/lightDark_image"
                 android:layout_width="40dp"
                 android:layout_height="match_parent"
-                android:layout_marginRight="15dp"
+                android:layout_marginRight="0dp"
                 android:scaleType="center"
-                app:srcCompat="@drawable/icon_darkmode"
+                app:srcCompat="@drawable/icon_lightmode"
                 app:tint="@color/darkmode_schriftfarbe1" />
 
             <com.google.android.material.switchmaterial.SwitchMaterial
@@ -51,11 +51,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:checked="true"
-                android:text="Mode"
+
                 android:textColor="@color/darkmode_schriftfarbe1"
                 tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="0dp"
-                />
+                tools:layout_editor_absoluteY="0dp" />
+
+            <ImageView
+                android:id="@+id/lightDark_image2"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="0dp"
+                android:scaleType="center"
+                app:srcCompat="@drawable/icon_darkmode"
+                app:tint="@color/darkmode_schriftfarbe1" />
 
         </LinearLayout>
 
