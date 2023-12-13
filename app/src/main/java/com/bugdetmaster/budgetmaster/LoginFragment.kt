@@ -1,11 +1,15 @@
 package com.bugdetmaster.budgetmaster
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
@@ -14,7 +18,20 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
-    //Ordnet die Objekte den Variablen zu
+    final val TAG = "BUDGETMASTER"
+
+    //Stellt den Email EditText nach
+    lateinit var emailEditText: EditText
+
+    //Stellt den Passwort EditText nach
+    lateinit var passwortEingabeEditText: EditText
+
+    //Stellt den Registrieren Button nach
+    lateinit var anmeldeButton: Button
+    //Stellt den Google Button nach
+    lateinit var googleButton: Button
+    //Hinweistext - aktuell nicht drin
+    //lateinit var textHinweis: TextView
 
 
     override fun onCreateView(
@@ -41,6 +58,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
         super.onViewCreated(view, savedInstanceState)
 
+        //Ordnet die Objekte den Variablen zu
+        emailEditText = view.findViewById(R.id.Eingabe_Email)
+        passwortEingabeEditText = view.findViewById(R.id.Eingabe_Password)
+        anmeldeButton = view.findViewById(R.id.button_anmelden)
+        googleButton = view.findViewById(R.id.sign_in_button)
 
         /**
          * Mit der kommenden Methode wird der Button "Registrieren?" mit der ID Text_RegistrierenButton angesprochen.
@@ -59,7 +81,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
          * Der Navigationsgraph[nav_graph] kennt alle möglichen Routen vom aktuellen Fragment. Die action Variable erstellt die Route vom aktuellen Fragment zum [UebersichtFragment].
          * Die findNavController Klasse führt dann die Route aus.
          */
-        view.findViewById<Button>(R.id.button_anmelden).setOnClickListener {
+        anmeldeButton.setOnClickListener {
             val action = LoginFragmentDirections.actionLoginFragmentToUebersichtFragment()
             findNavController().navigate(action)
         }
@@ -70,10 +92,33 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
          * Der Navigationsgraph[nav_graph] kennt alle möglichen Routen vom aktuellen Fragment. Die action Variable erstellt die Route vom aktuellen Fragment zum [UebersichtFragment].
          * Die findNavController Klasse führt dann die Route aus.
         */
-        /**view.findViewById<Button>(R.id.sign_in_button).setOnClickListener {
+        /**googleButton.setOnClickListener {
             val action = LoginFragmentDirections.actionLoginFragmentToUebersichtFragment()
             findNavController().navigate(action)
-        } */
+        }*/
+
+        passwortEingabeEditText.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+            //Prüft, ob Eingaben getätigt wurden. Aktiviert dann den [anmeldeButton/button_anmelden]
+            override fun afterTextChanged(s: Editable?) {
+                val email = emailEditText.text.toString()
+                val passwort = passwortEingabeEditText.text.toString()
+
+                //Passt E-Mail?
+                if (email != "" && (email.contains("@"))){
+                    Log.i(TAG, "E-Mail ok")
+                    //Passwort drin?
+                    if (passwort != ""){
+                        Log.i(TAG, "Passwort ok")
+                        enabledButton(anmeldeButton)
+                    }
+                } else {
+                    //Hinweistext muss Fehler ausgeben
+                }
+            }
+        })
 
     }
     override fun onDestroyView() {
@@ -89,6 +134,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         (requireActivity().findViewById(R.id.topAppBar) as? MaterialToolbar)?.visibility = View.VISIBLE
     }
 
-
+    //Prüft ob der Button enabled ist oder nicht. Dadurch ändert sich der Zustand bzw. Farbe des Buttons
+    fun enabledButton(button: Button){
+        if(!button.isEnabled){
+            button.isEnabled = true
+        }
+    }
 }
 
