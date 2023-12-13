@@ -93,13 +93,14 @@
             app:layout_constraintVertical_bias="0.051" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:textAllCaps="false"
-            android:background="@drawable/button_design_2"
-            android:textColor="@color/darkmode_schriftfarbe1"
             android:id="@+id/Button_registrieren_fragReg"
             android:layout_width="150dp"
             android:layout_height="40dp"
+            android:background="@drawable/button_background_color"
+            android:enabled="false"
             android:text="Registrieren"
+            android:textAllCaps="false"
+            android:textColor="@color/darkmode_schriftfarbe1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -118,6 +119,20 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/logo_budgetmaster" />
+
+        <TextView
+            android:id="@+id/Hinweis_Reg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Hinweis"
+            android:textColor="@android:color/holo_red_dark"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Button_registrieren_fragReg"
+            app:layout_constraintVertical_bias="0.139" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

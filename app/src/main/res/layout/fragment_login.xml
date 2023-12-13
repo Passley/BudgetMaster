@@ -12,7 +12,8 @@
         >
 
         <androidx.appcompat.widget.AppCompatButton
-            android:background="@drawable/button_design_2"
+            android:enabled="false"
+            android:background="@drawable/button_background_color"
             android:textColor="@color/darkmode_schriftfarbe1"
             android:textAllCaps="false"
             android:id="@+id/button_anmelden"

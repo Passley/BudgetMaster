@@ -14,6 +14,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
+    //Ordnet die Objekte den Variablen zu
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
