@@ -165,9 +165,4 @@
             android:id="@+id/action_ausgabeErstellenFragment_to_ausgabenFragment2"
             app:destination="@id/ausgabenFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/DATABANKFragment"
-        android:name="com.bugdetmaster.budgetmaster.DATABANKFragment"
-        android:label="fragment_d_a_t_a_b_a_n_k"
-        tools:layout="@layout/fragment_d_a_t_a_b_a_n_k" />
 </navigation>
