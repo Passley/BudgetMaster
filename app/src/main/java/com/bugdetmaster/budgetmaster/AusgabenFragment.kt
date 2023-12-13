@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.findNavController
 
 class AusgabenFragment : Fragment(R.layout.fragment_ausgaben) {
@@ -24,5 +25,10 @@ class AusgabenFragment : Fragment(R.layout.fragment_ausgaben) {
             val action = AusgabenFragmentDirections.actionAusgabenFragmentToAusgabeErstellenFragment()
             findNavController().navigate(action)
         }
+
+        //Den Zurückknopf für das aktuelle Fragment deaktivieren. Damit der User nicht mehr in den Login/SignUp Screen kommt.
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object: OnBackPressedCallback(true){
+            override fun handleOnBackPressed() {}
+        })
     }
 }

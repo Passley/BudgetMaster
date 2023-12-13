@@ -13,6 +13,7 @@ import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.switchmaterial.SwitchMaterial
 import android.content.SharedPreferences
+import androidx.activity.OnBackPressedCallback
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 
@@ -45,6 +46,10 @@ class SettingsOneFragment : Fragment(R.layout.fragment_settings_one) {
             updateDarkMode(isChecked)
         }
 
+        //Den Zurückknopf für das aktuelle Fragment deaktivieren. Damit der User nicht mehr in den Login/SignUp Screen kommt.
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object: OnBackPressedCallback(true){
+            override fun handleOnBackPressed() {}
+        })
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -62,7 +67,7 @@ class SettingsOneFragment : Fragment(R.layout.fragment_settings_one) {
      * ein nicht ausgefüllter Halbmond und der Switch ist nicht aktiviert. Im Darkmode ist [lightDark_image]
      * ein ausgefüllter Halbmond und der Switch ist aktiviert.
      */
-// Die Methode [updateDarkMode] aktualisiert den Dark Mode basierend auf dem Schalterstatus
+    // Die Methode [updateDarkMode] aktualisiert den Dark Mode basierend auf dem Schalterstatus
     private fun updateDarkMode(isChecked: Boolean) {
         if (isChecked) {
             // Dark Mode aktivieren

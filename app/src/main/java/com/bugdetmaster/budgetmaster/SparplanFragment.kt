@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.findNavController
 
 
@@ -23,5 +24,10 @@ class SparplanFragment : Fragment(R.layout.fragment_sparplan) {
             val action = SparplanFragmentDirections.actionSparplanFragmentToSparplanErstellenFragment()
             findNavController().navigate(action)
         }
+
+        //Den Zurückknopf für das aktuelle Fragment deaktivieren. Damit der User nicht mehr in den Login/SignUp Screen kommt.
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object: OnBackPressedCallback(true){
+            override fun handleOnBackPressed() {}
+        })
     }
 }

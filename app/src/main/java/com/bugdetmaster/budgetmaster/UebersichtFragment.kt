@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 
 
 class UebersichtFragment : Fragment(R.layout.fragment_uebersicht) {
@@ -17,7 +18,6 @@ class UebersichtFragment : Fragment(R.layout.fragment_uebersicht) {
     private var percentage: Int = 0
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         // Initialisiere ProgressBar und TextView
         progressBar = view.findViewById(R.id.progress_bar)
         progressText = view.findViewById(R.id.progressbar_text)
@@ -43,6 +43,14 @@ class UebersichtFragment : Fragment(R.layout.fragment_uebersicht) {
             }
         }, 200)
 
+        //Den Zurückknopf für das aktuelle Fragment deaktivieren. Damit der User nicht mehr in den Login/SignUp Screen kommt.
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object: OnBackPressedCallback(true){
+            override fun handleOnBackPressed() {}
+        })
+
+
     }
+
+
 
 }
