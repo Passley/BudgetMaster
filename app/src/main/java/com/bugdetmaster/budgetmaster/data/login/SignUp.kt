@@ -1,4 +1,4 @@
-package com.bugdetmaster.budgetmaster.data
+package com.bugdetmaster.budgetmaster.data.login
 
 import com.google.gson.annotations.SerializedName
 

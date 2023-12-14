@@ -8,18 +8,17 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:enabled="false"
-            android:background="@drawable/button_background_color"
-            android:textColor="@color/darkmode_schriftfarbe1"
-            android:textAllCaps="false"
             android:id="@+id/button_anmelden"
             android:layout_width="150dp"
             android:layout_height="40dp"
+            android:background="@drawable/button_background_color"
+            android:enabled="false"
             android:text="Anmelden"
+            android:textAllCaps="false"
+            android:textColor="@color/darkmode_schriftfarbe1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -38,8 +37,7 @@
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Eingabe_Email"
-            app:layout_constraintVertical_bias="0.073"
-            />
+            app:layout_constraintVertical_bias="0.073" />
 
         <EditText
             android:id="@+id/Eingabe_Email"
@@ -66,18 +64,22 @@
             app:layout_constraintTop_toBottomOf="@+id/Eingabe_Password"
             app:layout_constraintVertical_bias="0.43" />
 
-        <com.google.android.gms.common.SignInButton
+
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/sign_in_button"
-            android:layout_width="227dp"
-            android:layout_height="51dp"
-            android:text="Anmelden mit Google"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:paddingLeft="10dp"
+            android:background="@drawable/button_background_color"
+            android:drawableStart="@drawable/icon_google"
+            android:text="Sign in"
+            android:textAllCaps="false"
+            android:textColor="@color/darkmode_schriftfarbe1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.505"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button_anmelden"
-            app:layout_constraintVertical_bias="0.083"
-            tools:visibility="invisible" />
+            app:layout_constraintVertical_bias="0.124" />
 
         <ImageView
             android:id="@+id/imageView"
