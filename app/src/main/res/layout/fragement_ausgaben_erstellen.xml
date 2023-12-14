@@ -17,7 +17,7 @@
             android:layout_marginTop="56dp"
             android:ems="10"
             android:hint="Ausgabe eingeben"
-            android:inputType="number"
+            android:inputType="text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
@@ -32,13 +32,14 @@
             android:layout_marginTop="32dp"
             android:ems="10"
             android:hint="Beschreibung eingeben"
-            android:inputType="date"
+            android:inputType="text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Eingabe_Ausgabe"
-            app:layout_constraintVertical_bias="0.022" />
+            app:layout_constraintVertical_bias="0.0" />
+
         <EditText
             android:id="@+id/Eingabe_Datum"
             android:layout_width="wrap_content"
@@ -52,7 +53,8 @@
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Eingabe_Beschreibung"
-            app:layout_constraintVertical_bias="0.022" />
+            app:layout_constraintVertical_bias="0.0" />
+
         <EditText
             android:id="@+id/Eingabe_Beitrag"
             android:layout_width="wrap_content"
@@ -60,27 +62,28 @@
             android:layout_marginTop="32dp"
             android:ems="10"
             android:hint="Beitrag eingeben"
-            android:inputType="date"
+            android:inputType="number|numberDecimal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Eingabe_Datum"
-            app:layout_constraintVertical_bias="0.022" />
+            app:layout_constraintVertical_bias="0.0" />
+
         <androidx.appcompat.widget.AppCompatButton
-            android:textAllCaps="false"
-            android:background="@drawable/button_design_2"
-            android:textColor="@color/darkmode_schriftfarbe1"
             android:id="@+id/Button_Ausgabe_Erstellen"
             android:layout_width="150dp"
             android:layout_height="40dp"
+            android:background="@drawable/button_design_2"
             android:text="Ausgabe erstellen"
+            android:textAllCaps="false"
+            android:textColor="@color/darkmode_schriftfarbe1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Eingabe_Beitrag"
-            app:layout_constraintVertical_bias="0.089" />
+            app:layout_constraintTop_toBottomOf="@+id/Kategorie"
+            app:layout_constraintVertical_bias="0.297" />
 
         <TextView
             android:id="@+id/text_Sparplan_erstellen"
@@ -91,10 +94,24 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.253" />
+            app:layout_constraintVertical_bias="0.134" />
+
+        <EditText
+            android:id="@+id/Kategorie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Kategorie eingeben"
+            android:inputType="textMultiLine"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Eingabe_Beitrag"
+            app:layout_constraintVertical_bias="0.0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

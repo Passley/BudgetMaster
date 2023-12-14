@@ -86,6 +86,20 @@
                 android:text="Apfel, Banane"
                 android:textSize="14sp" />
 
+            <TextView
+                android:id="@+id/Kategorie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/Beschreibung"
+                android:layout_below="@+id/Ausgabe"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="100dp"
+                android:layout_marginBottom="24dp"
+                android:layout_toStartOf="@+id/Datum"
+                android:text="Essen" />
+
         </RelativeLayout>
 
         <androidx.appcompat.widget.AppCompatButton
