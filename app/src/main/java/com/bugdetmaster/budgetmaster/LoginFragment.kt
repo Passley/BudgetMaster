@@ -82,6 +82,14 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
          * Die findNavController Klasse führt dann die Route aus.
          */
         anmeldeButton.setOnClickListener {
+            // Zeige die Navigationsleiste wieder an
+            activity?.findViewById<BottomNavigationView>(R.id.bottom_nav)?.visibility = View.VISIBLE
+
+            // Zeige die ActionBar wieder an
+            (requireActivity() as? AppCompatActivity)?.supportActionBar?.show()
+
+            // Zeige die Top-Bar wieder an
+            (requireActivity().findViewById(R.id.topAppBar) as? MaterialToolbar)?.visibility = View.VISIBLE
             val action = LoginFragmentDirections.actionLoginFragmentToUebersichtFragment()
             findNavController().navigate(action)
         }
@@ -121,18 +129,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         })
 
     }
-    override fun onDestroyView() {
-        super.onDestroyView()
 
-        // Zeige die Navigationsleiste wieder an, wenn das Fragment zerstört wird
-        activity?.findViewById<BottomNavigationView>(R.id.bottom_nav)?.visibility = View.VISIBLE
-
-        // Zeige die ActionBar (Top-Bar) wieder an, wenn das Fragment zerstört wird
-        (requireActivity() as? AppCompatActivity)?.supportActionBar?.show()
-
-        // Zeige die TopAppBar wieder an, wenn das Fragment zerstört wird
-        (requireActivity().findViewById(R.id.topAppBar) as? MaterialToolbar)?.visibility = View.VISIBLE
-    }
 
     //Prüft ob der Button enabled ist oder nicht. Dadurch ändert sich der Zustand bzw. Farbe des Buttons
     fun enabledButton(button: Button){
