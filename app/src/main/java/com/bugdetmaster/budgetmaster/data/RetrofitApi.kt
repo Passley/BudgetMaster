@@ -24,6 +24,20 @@ import com.bugdetmaster.budgetmaster.data.login.LogoutResponse
 import com.bugdetmaster.budgetmaster.data.login.SignUp
 import com.bugdetmaster.budgetmaster.data.login.SignUpResponse
 import com.bugdetmaster.budgetmaster.data.login.checkedLoggedInResponse
+import com.bugdetmaster.budgetmaster.data.transaction.deleteTransaction
+import com.bugdetmaster.budgetmaster.data.transaction.deleteTransactionResponse
+import com.bugdetmaster.budgetmaster.data.transaction.getCategoryTransaction
+import com.bugdetmaster.budgetmaster.data.transaction.getCategoryTransactionResponse
+import com.bugdetmaster.budgetmaster.data.transaction.getLastNTransactions
+import com.bugdetmaster.budgetmaster.data.transaction.getLastNTransactionsResponse
+import com.bugdetmaster.budgetmaster.data.transaction.getMonthTransaction
+import com.bugdetmaster.budgetmaster.data.transaction.getMonthTransactionResponse
+import com.bugdetmaster.budgetmaster.data.transaction.insertTransaction
+import com.bugdetmaster.budgetmaster.data.transaction.insertTransactionResponse
+import com.bugdetmaster.budgetmaster.data.transaction.readTransaction
+import com.bugdetmaster.budgetmaster.data.transaction.readTransactionResponse
+import com.bugdetmaster.budgetmaster.data.transaction.updateTransaction
+import com.bugdetmaster.budgetmaster.data.transaction.updateTransactionResponse
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -72,6 +86,26 @@ interface RetrofitApi {
 
     //Alle für Transaktionen
 
+    @POST("readTransaction")
+    fun ReadTransaction(@Body call: readTransaction): Call<readTransactionResponse>
+
+    @POST("getLastNTransactions")
+    fun setGetLastNTransactions(@Body call: getLastNTransactions): Call<List<getLastNTransactionsResponse>>
+
+    @POST("getMonthTransaction")
+    fun getMonthTransaction(@Body call: getMonthTransaction): Call<List<getMonthTransactionResponse>>
+
+    @POST("getCategoryTransaction")
+    fun getCategoryTransaction(@Body call: getCategoryTransaction): Call<List<getCategoryTransactionResponse>>
+
+    @POST("deleteTransaction")
+    fun deleteTransaction(@Body call: deleteTransaction): Call<deleteTransactionResponse>
+
+    @POST("insertTransaction")
+    fun insertTransaction(@Body call: insertTransaction): Call<insertTransactionResponse>
+
+    @POST("updateTransaction")
+    fun updateTransaction(@Body call: updateTransaction): Call<updateTransactionResponse>
 
 
 
