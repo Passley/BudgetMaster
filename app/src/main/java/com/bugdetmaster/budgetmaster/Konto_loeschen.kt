@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
@@ -12,8 +13,13 @@ import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class Konto_loeschen : Fragment(R.layout.fragment_konto_loeschen) {
+    lateinit var kontoLoeschenButton: Button
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        //Verbindet Variable mit Button
+        kontoLoeschenButton = view.findViewById(R.id.btn_kontoloesch_bestaetigen)
 
         /**
          * Mit der kommenden Methode wird der Button "Bestätigen" mit der ID btn_kontoloesch_bestaetigen angesprochen.
@@ -21,7 +27,7 @@ class Konto_loeschen : Fragment(R.layout.fragment_konto_loeschen) {
          * Der Navigationsgraph kennt alle möglichen Routen und die action Variable erstellt die Route vom aktuellen Fragment zum LoginFragment.
          * Die findNavController Klasse führt dann die Route aus.
          */
-        view.findViewById<TextView>(R.id.btn_kontoloesch_bestaetigen).setOnClickListener {
+        kontoLoeschenButton.setOnClickListener {
             val action = Konto_loeschenDirections.actionKontoLoeschenToLoginFragment()
             findNavController().navigate(action)
         }

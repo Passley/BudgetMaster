@@ -6,12 +6,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class SparplanErstellenFragment : Fragment(R.layout.fragment_sparplan_erstellen) {
+
+    //Stellt den Abbrechen Button nach
+    lateinit var abbrechenButton: Button
+    //Stellt den Sparplan Erstellen nach
+    lateinit var sparplanErstellenButton: Button
+    //Stellt den Sparziel EditText nach
+    lateinit var sparzielEditText: EditText
+    //Stellt den Zeitraum Auswählen EditText nach
+    lateinit var zeitraumEditText: EditText
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,13 +42,27 @@ class SparplanErstellenFragment : Fragment(R.layout.fragment_sparplan_erstellen)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //Verbindet Variablen mit Objekten in Layout
+        abbrechenButton = view.findViewById(R.id.button_Sparplan_Abbrechen)
+        sparplanErstellenButton = view.findViewById(R.id.Button_Sparplan_Erstellen)
+        sparzielEditText = view.findViewById(R.id.Eingabe_Sparziel)
+        zeitraumEditText = view.findViewById(R.id.Eingabe_Zeitraum)
+
+
         /**
          * Mit der kommenden Methode wird der Button "Sparplan erstellen" mit der ID Button_Sparplan_Erstellen angesprochen.
          * Dieser hat mit dem setClickListener-Methode die Aufgabe, den Benutzer auf das Fragment SparplanFragment zu verweisen.
          * Der Navigationsgraph kennt alle möglichen Routen und die action Variable erstellt die Route vom aktuellen Fragment zum SparplanFragment.
          * Die findNavController Klasse führt dann die Route aus.
          */
-        view.findViewById<Button>(R.id.Button_Sparplan_Erstellen).setOnClickListener {
+        sparplanErstellenButton.setOnClickListener {
+            val sparplan: Int = (Integer.parseInt(sparzielEditText.text.toString().trim())) * 100
+            val zeitraum: String = zeitraumEditText.text.toString()
+
+            //toDo: Sparplan erstellen Methode
+
+            Toast.makeText(activity,"Sparplan erstellt", Toast.LENGTH_SHORT).show()
+
             val action = SparplanErstellenFragmentDirections.actionSparplanErstellenFragmentToSparplanFragment()
             findNavController().navigate(action)
         }
@@ -46,7 +72,7 @@ class SparplanErstellenFragment : Fragment(R.layout.fragment_sparplan_erstellen)
          * Der Navigationsgraph kennt alle möglichen Routen und die action Variable erstellt die Route vom aktuellen Fragment zum SparplanFragment.
          * Die findNavController Klasse führt dann die Route aus.
          */
-        view.findViewById<Button>(R.id.button_Sparplan_Abbrechen).setOnClickListener {
+        abbrechenButton.setOnClickListener {
             val action = SparplanErstellenFragmentDirections.actionSparplanErstellenFragmentToSparplanFragment()
             findNavController().navigate(action)
         }

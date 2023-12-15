@@ -12,7 +12,11 @@
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
-            app:destination="@id/registerFragment" />
+            app:destination="@id/registerFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
         <action
             android:id="@+id/action_loginFragment_to_uebersichtFragment"
             app:destination="@id/uebersichtFragment"
@@ -29,10 +33,10 @@
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_registerFragment_to_uebersichtFragment"
             app:destination="@id/uebersichtFragment"
@@ -53,7 +57,11 @@
         tools:layout="@layout/fragment_settings_one" >
         <action
             android:id="@+id/action_settingsOneFragment_to_settingsTwoFragment"
-            app:destination="@id/settingsTwoFragment" />
+            app:destination="@id/settingsTwoFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/ausgabenFragment"
@@ -91,7 +99,11 @@
             app:destination="@id/passwort_aendern" />
         <action
             android:id="@+id/action_sparplanErstellenFragment_to_sparplanFragment"
-            app:destination="@id/sparplanFragment" />
+            app:destination="@id/sparplanFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/settingsTwoFragment"
@@ -128,7 +140,11 @@
             app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_settingsTwoFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/benutzername_aendern"
@@ -136,7 +152,11 @@
         android:label="Benutzername_aendern" >
         <action
             android:id="@+id/action_benutzername_aendern_to_settingsTwoFragment"
-            app:destination="@id/settingsTwoFragment" />
+            app:destination="@id/settingsTwoFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/konto_loeschen"
@@ -144,7 +164,11 @@
         android:label="Konto_loeschen" >
         <action
             android:id="@+id/action_konto_loeschen_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/passwort_aendern"
@@ -152,7 +176,11 @@
         android:label="Passwort_aendern" >
         <action
             android:id="@+id/action_passwort_aendern_to_settingsTwoFragment"
-            app:destination="@id/settingsTwoFragment" />
+            app:destination="@id/settingsTwoFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/ausgabeErstellenFragment"
@@ -163,6 +191,10 @@
             app:destination="@id/ausgabenFragment" />
         <action
             android:id="@+id/action_ausgabeErstellenFragment_to_ausgabenFragment2"
-            app:destination="@id/ausgabenFragment" />
+            app:destination="@id/ausgabenFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 </navigation>

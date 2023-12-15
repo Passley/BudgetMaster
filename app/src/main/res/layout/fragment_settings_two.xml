@@ -11,15 +11,17 @@
         android:layout_height="match_parent">
 
 
+        <!--- Soll zum Anmelde Bildschirm führen -->
+
         <androidx.appcompat.widget.AppCompatButton
-            android:background="@drawable/button_design_2"
-            android:textColor="@color/darkmode_schriftfarbe1"
-            android:textAllCaps="false"
             android:id="@+id/btn_settings2_Abmelden"
             android:layout_width="200dp"
             android:layout_height="45dp"
+            android:background="@drawable/button_design_2"
             android:elevation="40dp"
             android:text="Abmelden"
+            android:textAllCaps="false"
+            android:textColor="@color/darkmode_schriftfarbe1"
             app:icon="@drawable/icon_settings"
             app:iconPadding="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -27,18 +29,21 @@
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_settings2_ueber"
-            app:layout_constraintVertical_bias="0.400" />
-        <!--- Soll zum Anmelde Bildschirm führen -->
+            app:layout_constraintVertical_bias="0.248" />
+
+        <!--- Kein genauen Plan was das machen soll
+         werde noch nachfragen ob ich nochmal einen
+         Bildschirm dafür aufsetzen soll.-->
 
         <androidx.appcompat.widget.AppCompatButton
-            android:textAllCaps="false"
-            android:background="@drawable/button_design_2"
-            android:textColor="@color/darkmode_schriftfarbe1"
             android:id="@+id/btn_settings2_Kon_loeschen"
             android:layout_width="200dp"
             android:layout_height="45dp"
+            android:background="@drawable/button_design_2"
             android:elevation="40dp"
             android:text="Konto löschen"
+            android:textAllCaps="false"
+            android:textColor="@color/darkmode_schriftfarbe1"
             app:icon="@drawable/icon_settings"
             app:iconPadding="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -46,10 +51,7 @@
             app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_settings2_ueber"
-            app:layout_constraintVertical_bias="0.500" />
-        <!--- Kein genauen Plan was das machen soll
-         werde noch nachfragen ob ich nochmal einen
-         Bildschirm dafür aufsetzen soll.-->
+            app:layout_constraintVertical_bias="0.354" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/sett_abbrechen"
@@ -69,43 +71,9 @@
             app:layout_constraintTop_toBottomOf="@+id/text_settings2_ueber"
             app:layout_constraintVertical_bias="0.708" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:background="@drawable/button_design_2"
-            android:textColor="@color/darkmode_schriftfarbe1"
-            android:textAllCaps="false"
-            android:id="@+id/btn_settings2Pas_aendern"
-            android:layout_width="200dp"
-            android:layout_height="45dp"
-            android:elevation="40dp"
-            android:text="Passwort ändern"
-            app:icon="@drawable/icon_settings"
-            app:iconPadding="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_settings2_ueber"
-            app:layout_constraintVertical_bias="0.300" />
         <!--- Der button soll zu dem fragment_passwort_aendern führen -->
 
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:background="@drawable/button_design_2"
-            android:textColor="@color/darkmode_schriftfarbe1"
-            android:textAllCaps="false"
-            android:id="@+id/btn_settings2_Benut_aendern"
-            android:layout_width="200dp"
-            android:layout_height="45dp"
-            android:elevation="40dp"
-            android:text="Benutzername ändern"
-            app:icon="@drawable/icon_settings"
-            app:iconPadding="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_settings2_ueber"
-            app:layout_constraintVertical_bias="0.200" />
         <!--- Hier soll es zu dem Fragment Benutzername aendern führen -->
 
         <TextView
@@ -119,7 +87,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.023" />
+            app:layout_constraintVertical_bias="0.064" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

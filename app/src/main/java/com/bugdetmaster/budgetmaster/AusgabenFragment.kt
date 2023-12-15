@@ -10,10 +10,15 @@ import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.findNavController
 
 class AusgabenFragment : Fragment(R.layout.fragment_ausgaben) {
-
+    //Stellt den Hinzufügen Button nach
+    lateinit var addAusgabeButton: Button
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        //Verbindet Variable mit Objekt in Layout
+        addAusgabeButton = view.findViewById(R.id.addAusgabeButton)
+
 
         /**
          * Mit der kommenden Methode wird der Button "Hinzufügen" mit der ID addAusgabeButton angesprochen.
@@ -21,7 +26,7 @@ class AusgabenFragment : Fragment(R.layout.fragment_ausgaben) {
          * Der Navigationsgraph kennt alle möglichen Routen und die action Variable erstellt die Route vom aktuellen Fragment zum AusgabeErstellenFragment.
          * Die findNavController Klasse führt dann die Route aus.
          */
-        view.findViewById<Button>(R.id.addAusgabeButton).setOnClickListener {
+        addAusgabeButton.setOnClickListener {
             val action = AusgabenFragmentDirections.actionAusgabenFragmentToAusgabeErstellenFragment()
             findNavController().navigate(action)
         }

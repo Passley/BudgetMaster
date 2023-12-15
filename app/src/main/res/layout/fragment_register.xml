@@ -105,19 +105,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/logo_budgetmaster" />
 
-        <TextView
-            android:id="@+id/Hinweis_Reg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Hinweis"
-            android:textColor="@android:color/holo_red_dark"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Button_registrieren_fragReg"
-            app:layout_constraintVertical_bias="0.139" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

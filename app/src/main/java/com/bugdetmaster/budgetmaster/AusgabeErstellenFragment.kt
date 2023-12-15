@@ -13,6 +13,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class AusgabeErstellenFragment : Fragment(R.layout.fragement_ausgaben_erstellen) {
 
+    //Stellt den Sparplan löschen Button nach
+    lateinit var sparplanLöschen: Button
+    //Stellt den Sparplan Erstellen Button nach
+    lateinit var sparplanErstellenButton: Button
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,13 +39,18 @@ class AusgabeErstellenFragment : Fragment(R.layout.fragement_ausgaben_erstellen)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //Verbindet Variablen mit Objekten in Layout
+        sparplanErstellenButton = view.findViewById(R.id.button_sparplan_erstellen)
+        sparplanLöschen = view.findViewById(R.id.button_sparplan_loeschen)
+
+
         /**
          * Mit der kommenden Methode wird der Button "Ausgabe ertsellen" mit der ID Button_Ausgabe_Erstellen angesprochen.
          * Dieser hat mit dem setClickListener-Methode die Aufgabe, den Benutzer auf das Fragment AusgabenFragment zu verweisen.
          * Der Navigationsgraph kennt alle möglichen Routen und die action Variable erstellt die Route vom aktuellen Fragment zum AusgabenFragment.
          * Die findNavController Klasse führt dann die Route aus.
          */
-        view.findViewById<Button>(R.id.Button_Ausgabe_Erstellen).setOnClickListener {
+        sparplanErstellenButton.setOnClickListener {
             val action = AusgabeErstellenFragmentDirections.actionAusgabeErstellenFragmentToAusgabenFragment()
             findNavController().navigate(action)
         }

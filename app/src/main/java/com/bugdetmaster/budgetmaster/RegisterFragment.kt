@@ -32,8 +32,6 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
     lateinit var passwortBestaetigenEditText: EditText
     //Stellt den Registrieren Button nach
     lateinit var registerButton: Button
-    //Hinweistext
-    lateinit var textHinweis: TextView
 
 
     override fun onCreateView(
@@ -60,8 +58,6 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         passwortEingabeEditText = view.findViewById(R.id.Eingabe_passwort_erstellen)
         passwortBestaetigenEditText = view.findViewById(R.id.Eingabe_passwort_bestaetigen)
         registerButton = view.findViewById(R.id.Button_registrieren_fragReg)
-        textHinweis = view.findViewById(R.id.Hinweis_Reg)
-        textHinweis.visibility = View.GONE
         /**
          * Mit der kommenden Methode wird der Button "Anmelden?" mit der ID [Text_Anmelden] angesprochen.
          * Dieser hat mit der setClickListener-Methode die Aufgabe, den Benutzer auf das [LoginFragment] zu verweisen.
@@ -117,19 +113,14 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
                         if (passwort_1 == passwort_2){
                             Log.i(TAG, "Passwörter ok")
                             enabledButton(registerButton)
-                        } else{
-                           /** try {
-                                textHinweis.text = "Passwörter stimmen nicht überein."
-                                textHinweis.visibility = View.VISIBLE
-                            } catch (e: Exception){ e.printStackTrace() } */
                         }
                     } else {
-                        textHinweis.text = "Bitte fülle das Nutzernamen Feld aus."
-                        textHinweis.visibility = View.VISIBLE
+                        Toast.makeText(activity,"Bitte fülle das Nutzernamen Feld aus.", Toast.LENGTH_SHORT).show()
+                        registerButton.isEnabled = false
                     }
                 } else {
-                     textHinweis.text = "Bitte fülle das E-Mail Feld aus."
-                     textHinweis.visibility = View.VISIBLE
+                    Toast.makeText(activity,"Bitte fülle das E-Mail Feld aus.", Toast.LENGTH_SHORT).show()
+                    registerButton.isEnabled = false
                 }
             }
         })

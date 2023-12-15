@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.appbar.MaterialToolbar
@@ -100,10 +101,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
          * Der Navigationsgraph[nav_graph] kennt alle möglichen Routen vom aktuellen Fragment. Die action Variable erstellt die Route vom aktuellen Fragment zum [UebersichtFragment].
          * Die findNavController Klasse führt dann die Route aus.
         */
-        /**googleButton.setOnClickListener {
+        googleButton.setOnClickListener {
             val action = LoginFragmentDirections.actionLoginFragmentToUebersichtFragment()
             findNavController().navigate(action)
-        }*/
+        }
 
         passwortEingabeEditText.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -121,9 +122,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     if (passwort != ""){
                         Log.i(TAG, "Passwort ok")
                         enabledButton(anmeldeButton)
+                        enabledButton(googleButton)
                     }
                 } else {
-                    //Hinweistext muss Fehler ausgeben
+                    Toast.makeText(activity, "Bitte fülle das E-Mail Feld aus.", Toast.LENGTH_SHORT).show()
                 }
             }
         })
