@@ -2,9 +2,7 @@ package com.bugdetmaster.budgetmaster
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
 import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.findNavController
@@ -17,7 +15,7 @@ class AusgabenFragment : Fragment(R.layout.fragment_ausgaben) {
         super.onViewCreated(view, savedInstanceState)
 
         //Verbindet Variable mit Objekt in Layout
-        addAusgabeButton = view.findViewById(R.id.addAusgabeButton)
+        addAusgabeButton = view.findViewById(R.id.addAusgabeButton1)
 
 
         /**

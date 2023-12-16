@@ -89,7 +89,7 @@
                         android:layout_centerVertical="true"
                         android:gravity="center"
                         android:text="---"
-                        android:textSize="28dp"
+                        android:textSize="24dp"
                         android:textStyle="bold"/>
 
                 </RelativeLayout>

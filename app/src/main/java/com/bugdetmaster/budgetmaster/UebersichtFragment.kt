@@ -22,16 +22,30 @@ class UebersichtFragment : Fragment(R.layout.fragment_uebersicht) {
         progressBar = view.findViewById(R.id.progress_bar)
         progressText = view.findViewById(R.id.progressbar_text)
 
+        progress()
+
+        //Den Zurückknopf für das aktuelle Fragment deaktivieren. Damit der User nicht mehr in den Login/SignUp Screen kommt.
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object: OnBackPressedCallback(true){
+            override fun handleOnBackPressed() {}
+        })
+
+
+    }
+
+    fun progress(){
+        val ziel = 10000
+        val aktuell = 5002
+        val prozent = (aktuell.toDouble() / ziel.toDouble()) * 100
+        prozent.toInt()
         // Handler wird verwendet, um die ProgressBar mit einem animierten Fortschritt zu aktualisieren
         val handler = Handler()
-
+        progressText.text = "$aktuell/$ziel"
         // PostDelayed-Methode startet die Aktualisierung nach einer Verzögerung
         handler.postDelayed(object: Runnable{
             override fun run() {
                 // Prüfe, ob der Fortschritt kleiner oder gleich 100 ist
-                if (percentage <= 100) {
-                    // Setze den Fortschrittstext und aktualisiere die ProgressBar
-                    progressText.text = "" + percentage
+                if (prozent>percentage) {
+                    // aktualisiere die ProgressBar
                     progressBar.setProgress(percentage)
                     percentage++
                     // Wiederhole die Aktualisierung nach einer Verzögerung
@@ -42,15 +56,6 @@ class UebersichtFragment : Fragment(R.layout.fragment_uebersicht) {
                 }
             }
         }, 200)
-
-        //Den Zurückknopf für das aktuelle Fragment deaktivieren. Damit der User nicht mehr in den Login/SignUp Screen kommt.
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object: OnBackPressedCallback(true){
-            override fun handleOnBackPressed() {}
-        })
-
-
     }
-
-
 
 }

@@ -54,7 +54,7 @@
             android:background="@drawable/button_design_2"
             android:textColor="@color/darkmode_schriftfarbe1"
             android:textAllCaps="false"
-            android:id="@+id/button_sparplan_erstellen"
+            android:id="@+id/button_sparplan_erstellen1"
             android:layout_width="150dp"
             android:layout_height="40dp"
             android:text="Sparplan erstellen"
@@ -64,6 +64,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/text_sparplan_platzhalter"
             app:layout_constraintVertical_bias="0.735" />
+
+        <!--toDO: Button 2 erstellen -->
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

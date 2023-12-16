@@ -2,9 +2,7 @@ package com.bugdetmaster.budgetmaster
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
 import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.findNavController
@@ -20,7 +18,7 @@ class SparplanFragment : Fragment(R.layout.fragment_sparplan) {
          * Der Navigationsgraph kennt alle möglichen Routen und die action Variable erstellt die Route vom aktuellen Fragment zum SparplanErstellenFragment.
          * Die findNavController Klasse führt dann die Route aus.
          */
-        view.findViewById<Button>(R.id.button_sparplan_erstellen).setOnClickListener {
+        view.findViewById<Button>(R.id.button_sparplan_erstellen1).setOnClickListener {
             val action = SparplanFragmentDirections.actionSparplanFragmentToSparplanErstellenFragment()
             findNavController().navigate(action)
         }

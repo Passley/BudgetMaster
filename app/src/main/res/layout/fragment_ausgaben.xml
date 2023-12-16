@@ -19,7 +19,7 @@
             android:background="@drawable/button_design_1"
             android:orientation="vertical"
             android:padding="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/addAusgabeButton"
+            app:layout_constraintBottom_toTopOf="@+id/addAusgabeButton1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -103,7 +103,7 @@
         </RelativeLayout>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/addAusgabeButton"
+            android:id="@+id/addAusgabeButton1"
             android:layout_width="153dp"
             android:layout_height="51dp"
             android:layout_margin="16dp"
