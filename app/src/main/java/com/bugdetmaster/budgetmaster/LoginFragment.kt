@@ -14,8 +14,11 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
+import com.bugdetmaster.budgetmaster.data.RetrofitApi
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
@@ -33,6 +36,14 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     lateinit var googleButton: Button
     //Hinweistext - aktuell nicht drin
     //lateinit var textHinweis: TextView
+
+
+    //Die URL des Servers
+    val BASE_URL = "http://85.215.77.230/"
+
+    companion object{
+        lateinit var Api: Retrofit
+    }
 
 
     override fun onCreateView(
@@ -132,6 +143,34 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     }
 
+    fun initRetro(): Retrofit{
+        if (Api == null){
+            Api = Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+                .create(Retrofit::class.java)
+            return Api
+        }
+        return Api
+    }
+
+    fun initRetro2(): Retrofit{
+        val api = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(Api::class.java)
+        return api
+    }
+
+    fun login(){
+        val api = initRetro2()
+
+
+
+
+    }
 
     //Prüft ob der Button enabled ist oder nicht. Dadurch ändert sich der Zustand bzw. Farbe des Buttons
     fun enabledButton(button: Button){
