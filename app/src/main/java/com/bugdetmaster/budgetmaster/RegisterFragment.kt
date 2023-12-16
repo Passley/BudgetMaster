@@ -16,14 +16,28 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
+import com.bugdetmaster.budgetmaster.data.RetrofitApi
+import com.bugdetmaster.budgetmaster.data.login.SignUp
+import com.bugdetmaster.budgetmaster.data.login.SignUpResponse
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import java.util.Date
 
 class RegisterFragment : Fragment(R.layout.fragment_register) {
+    //Tag für die Konsole
     final val TAG = "BUDGETMASTER"
 
     //Stellt den Email EditText nach
     lateinit var emailEditText: EditText
+    //Stellt den Vornamen EditText nach
+    lateinit var vornameEditText: EditText
+    //Stellt den Nachnamen EditText nach
+    lateinit var nachnameEditText: EditText
     //Stellt den Nutzernamen EditText nach
     lateinit var nutzernameEditText: EditText
     //Stellt den Passwort EditText nach
@@ -33,6 +47,12 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
     //Stellt den Registrieren Button nach
     lateinit var registerButton: Button
 
+    //Die URL des Servers
+    val BASE_URL = "http://85.215.77.230/"
+
+    companion object{
+        lateinit var Api: Retrofit
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -58,6 +78,9 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         passwortEingabeEditText = view.findViewById(R.id.Eingabe_passwort_erstellen)
         passwortBestaetigenEditText = view.findViewById(R.id.Eingabe_passwort_bestaetigen)
         registerButton = view.findViewById(R.id.Button_registrieren_fragReg)
+        vornameEditText = view.findViewById(R.id.Eingabe_Vorname)
+        nachnameEditText = view.findViewById(R.id.Eingabe_Nachname)
+
         /**
          * Mit der kommenden Methode wird der Button "Anmelden?" mit der ID [Text_Anmelden] angesprochen.
          * Dieser hat mit der setClickListener-Methode die Aufgabe, den Benutzer auf das [LoginFragment] zu verweisen.
@@ -85,6 +108,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
 
             // Zeige die Top-Bar wieder an
             (requireActivity().findViewById(R.id.topAppBar) as? MaterialToolbar)?.visibility = View.VISIBLE
+            signUP()
             val action = RegisterFragmentDirections.actionRegisterFragmentToUebersichtFragment()
             findNavController().navigate(action)
         }
@@ -127,8 +151,47 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
 
     }
 
+    fun signUP(){
+        //Client
+        val api = initRetro2()
 
+        //Abgreifen der Eingaben
+        val email = emailEditText.text.toString()
+        val vorname = vornameEditText.text.toString()
+        val nachname = nachnameEditText.text.toString()
+        val nutzername = nutzernameEditText.text.toString()
+        val passwort = passwortEingabeEditText.text.toString()
+        val birthdate: String = "null"
 
+        //Erstellen des Datenobjekts
+        val data: SignUp = SignUp(vorname,nachname,email,passwort, nutzername, birthdate)
+
+        api.setSignUp(data).enqueue(object : Callback<SignUpResponse> {
+            override fun onResponse(
+                call: Call<SignUpResponse>,
+                response: Response<SignUpResponse>
+            ) {
+                if(response.isSuccessful){
+                    response.body()?.let {
+                        Log.i(TAG, "${it.msg}")
+                        Toast.makeText(activity,"${it.msg}",Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+            override fun onFailure(call: Call<SignUpResponse>, t: Throwable) {
+                Log.e(TAG,"$t.message")
+            }
+        })
+    }
+
+    fun initRetro2(): RetrofitApi {
+        val api = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(RetrofitApi::class.java)
+        return api
+    }
 
     //Prüft ob der Button enabled ist oder nicht. Dadurch ändert sich der Zustand bzw. Farbe des Buttons
     fun enabledButton(button: Button){

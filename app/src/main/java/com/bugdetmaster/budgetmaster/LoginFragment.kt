@@ -15,17 +15,24 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import com.bugdetmaster.budgetmaster.data.RetrofitApi
+import com.bugdetmaster.budgetmaster.data.login.Login
+import com.bugdetmaster.budgetmaster.data.login.LoginResponse
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import kotlin.math.log
 
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
+    //Tag für die Konsole
     final val TAG = "BUDGETMASTER"
 
     //Stellt den Email EditText nach
-    lateinit var emailEditText: EditText
+    lateinit var nutzernameEditText: EditText
 
     //Stellt den Passwort EditText nach
     lateinit var passwortEingabeEditText: EditText
@@ -34,8 +41,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     lateinit var anmeldeButton: Button
     //Stellt den Google Button nach
     lateinit var googleButton: Button
-    //Hinweistext - aktuell nicht drin
-    //lateinit var textHinweis: TextView
 
 
     //Die URL des Servers
@@ -71,7 +76,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         super.onViewCreated(view, savedInstanceState)
 
         //Ordnet die Objekte den Variablen zu
-        emailEditText = view.findViewById(R.id.Eingabe_Email)
+        nutzernameEditText = view.findViewById(R.id.Eingabe_Nutzername_Login)
         passwortEingabeEditText = view.findViewById(R.id.Eingabe_Password)
         anmeldeButton = view.findViewById(R.id.button_anmelden)
         googleButton = view.findViewById(R.id.sign_in_button)
@@ -102,8 +107,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
             // Zeige die Top-Bar wieder an
             (requireActivity().findViewById(R.id.topAppBar) as? MaterialToolbar)?.visibility = View.VISIBLE
-            val action = LoginFragmentDirections.actionLoginFragmentToUebersichtFragment()
-            findNavController().navigate(action)
+            login()
+                val action = LoginFragmentDirections.actionLoginFragmentToUebersichtFragment()
+                findNavController().navigate(action)
+
         }
 
         /**
@@ -123,12 +130,12 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
             //Prüft, ob Eingaben getätigt wurden. Aktiviert dann den [anmeldeButton/button_anmelden]
             override fun afterTextChanged(s: Editable?) {
-                val email = emailEditText.text.toString()
+                val nutzername = nutzernameEditText.text.toString()
                 val passwort = passwortEingabeEditText.text.toString()
 
                 //Passt E-Mail?
-                if (email != "" && (email.contains("@"))){
-                    Log.i(TAG, "E-Mail ok")
+                if (nutzername != ""){
+                    Log.i(TAG, "Nutzername ok")
                     //Passwort drin?
                     if (passwort != ""){
                         Log.i(TAG, "Passwort ok")
@@ -136,40 +143,46 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                         enabledButton(googleButton)
                     }
                 } else {
-                    Toast.makeText(activity, "Bitte fülle das E-Mail Feld aus.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity, "Bitte fülle das Nutzername Feld aus.", Toast.LENGTH_SHORT).show()
                 }
             }
         })
 
     }
 
-    fun initRetro(): Retrofit{
-        if (Api == null){
-            Api = Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-                .create(Retrofit::class.java)
-            return Api
-        }
-        return Api
-    }
-
-    fun initRetro2(): Retrofit{
+    fun initRetro2(): RetrofitApi{
         val api = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(Api::class.java)
+            .create(RetrofitApi::class.java)
         return api
     }
 
     fun login(){
+        //Client
         val api = initRetro2()
 
+        val password = passwortEingabeEditText.text.toString()
+        val username = nutzernameEditText.text.toString()
+        //Erstellen des Datenobjekts
+        val data: Login = Login(username, password)
 
+        api.setLogin(data).enqueue(object : Callback<LoginResponse>{
 
+            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+                    if (response.isSuccessful){
+                        Log.i(TAG, "Erfolgreich angemeldet...")
+                        response.body()?.let {
+                            Toast.makeText(activity,"${it.msg}", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+            }
 
+            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                Log.e(TAG, "Response Login: ${t.message}")
+            }
+        })
     }
 
     //Prüft ob der Button enabled ist oder nicht. Dadurch ändert sich der Zustand bzw. Farbe des Buttons
