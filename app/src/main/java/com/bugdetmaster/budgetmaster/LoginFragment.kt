@@ -149,7 +149,9 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         })
 
     }
-
+    /**
+     * Initialisiert den Retrofit Client und fügt die URL und den JSON Konverter hinzu
+     */
     fun initRetro2(): RetrofitApi{
         val api = Retrofit.Builder()
             .baseUrl(BASE_URL)

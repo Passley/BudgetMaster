@@ -4,18 +4,26 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.findNavController
 
 class AusgabenFragment : Fragment(R.layout.fragment_ausgaben) {
-    //Stellt den Hinzufügen Button nach
-    lateinit var addAusgabeButton: Button
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //Verbindet Variable mit Objekt in Layout
-        addAusgabeButton = view.findViewById(R.id.addAusgabeButton1)
+
+        view.findViewById<ImageButton>(R.id.BTN_TEST).setOnClickListener {
+            //Toast.makeText(activity, "ERFOLGREICH", Toast.LENGTH_SHORT).show()
+            //val action = AusgabenFragmentDirections.actionAusgabenFragmentToAusgabeErstellenFragment()
+            //findNavController().navigate(action)
+        }
+
+           // val action = AusgabenFragmentDirections.actionAusgabenFragmentToAusgabeErstellenFragment()
+           // findNavController().navigate(action)
 
 
         /**
@@ -24,10 +32,6 @@ class AusgabenFragment : Fragment(R.layout.fragment_ausgaben) {
          * Der Navigationsgraph kennt alle möglichen Routen und die action Variable erstellt die Route vom aktuellen Fragment zum AusgabeErstellenFragment.
          * Die findNavController Klasse führt dann die Route aus.
          */
-        addAusgabeButton.setOnClickListener {
-            val action = AusgabenFragmentDirections.actionAusgabenFragmentToAusgabeErstellenFragment()
-            findNavController().navigate(action)
-        }
 
         //Den Zurückknopf für das aktuelle Fragment deaktivieren. Damit der User nicht mehr in den Login/SignUp Screen kommt.
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object: OnBackPressedCallback(true){

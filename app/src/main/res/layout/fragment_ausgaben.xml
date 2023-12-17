@@ -19,7 +19,7 @@
             android:background="@drawable/button_design_1"
             android:orientation="vertical"
             android:padding="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/addAusgabeButton1"
+            app:layout_constraintBottom_toTopOf="@+id/BTN_TEST"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -103,19 +103,20 @@
         </RelativeLayout>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/addAusgabeButton1"
-            android:layout_width="153dp"
-            android:layout_height="51dp"
+            android:id="@+id/BTN_TEST"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
             android:layout_margin="16dp"
             android:layout_marginBottom="112dp"
             android:background="@drawable/button_design_2"
-            android:text="+ hinzufügen"
             android:textColor="@color/darkmode_schriftfarbe1"
+            android:clickable="true"
+            android:text="+ hinzufügen"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/relativeLayout2"
-            tools:ignore="MissingConstraints" />
+            app:layout_constraintTop_toBottomOf="@id/relativeLayout2" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

@@ -5,6 +5,7 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/loginFragment">
 
+    <!-- Hier werden alle Beziehungen zu den Fragments erzeugt und dargestellt. -->
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.bugdetmaster.budgetmaster.LoginFragment"
@@ -70,11 +71,7 @@
         tools:layout="@layout/fragment_ausgaben" >
         <action
             android:id="@+id/action_ausgabenFragment_to_ausgabeErstellenFragment"
-            app:destination="@id/ausgabeErstellenFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:destination="@id/ausgabeErstellenFragment" />
     </fragment>
     <fragment
         android:id="@+id/sparplanFragment"

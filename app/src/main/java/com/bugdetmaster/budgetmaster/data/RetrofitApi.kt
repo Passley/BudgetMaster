@@ -43,6 +43,11 @@ import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
 
+/**
+ * Dieses Interface repräsentiert alle Schnittstellen, die durch den Server angesprochen werden können.
+ * Jede Methode repräsentiert ein Funktion die aufgerufen werden kann. Dafür wird die Art des Ansprechens (POST/GET)
+ * sowie die Eingabe und Ausgabe vorher definiert.
+ */
 interface RetrofitApi {
 
     @GET("getExampleData")

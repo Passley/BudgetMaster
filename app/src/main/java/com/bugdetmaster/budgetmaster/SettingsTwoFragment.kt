@@ -14,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import com.bugdetmaster.budgetmaster.data.RetrofitApi
 import com.bugdetmaster.budgetmaster.data.login.Login
 import com.bugdetmaster.budgetmaster.data.login.LoginResponse
+import com.bugdetmaster.budgetmaster.data.login.LogoutResponse
 import com.bugdetmaster.budgetmaster.data.login.checkedLoggedInResponse
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -60,17 +61,12 @@ class SettingsTwoFragment : Fragment(R.layout.fragment_settings_two) {
 
 
         abmeldenButton.setOnClickListener {
-            //toDo: Methode fürs abmelden
-            checkedLogin()
-            //Toast.makeText(activity,"Du wurdest erfolgreich abgemeldet", Toast.LENGTH_SHORT).show()
-
-            //val action = SettingsTwoFragmentDirections.actionSettingsTwoFragmentToLoginFragment()
-            //findNavController().navigate(action)
+            loginToLogOut()
+            val action = SettingsTwoFragmentDirections.actionSettingsTwoFragmentToLoginFragment()
+            findNavController().navigate(action)
         }
 
         kontoloeschenButton.setOnClickListener {
-            //toDo: Methode fürs löschen
-
             val action = SettingsTwoFragmentDirections.actionSettingsTwoFragmentToKontoLoeschen()
             findNavController().navigate(action)
         }
@@ -92,11 +88,46 @@ class SettingsTwoFragment : Fragment(R.layout.fragment_settings_two) {
         }
     }
 
-    fun logOut(){
+
+    fun loginToLogOut(){
+        //Client
         val api = initRetro2()
 
+        val password = "AndroidPass"
+        val username = "1234"
+        //Erstellen des Datenobjekts
+        val data: Login = Login(username, password)
 
+        api.setLogin(data).enqueue(object : Callback<LoginResponse>{
+
+            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+                if (response.isSuccessful){
+                    Log.i(TAG, "Erfolgreich angemeldet...")
+                }
+            }
+
+            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                Log.e(TAG, "Response Login: ${t.message}")
+            }
+        })
+        api.getLogout().enqueue(object: Callback<LogoutResponse>{
+            override fun onResponse(
+                call: Call<LogoutResponse>,
+                response: Response<LogoutResponse>
+            ) {
+                if (response.isSuccessful){
+                    response.body()?.let {
+                        Toast.makeText(activity, "${it.msg}", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<LogoutResponse>, t: Throwable) {
+                Log.i(TAG,"${t.message}")
+            }
+        })
     }
+
 
     fun checkedLogin(){
         val api = initRetro2()
@@ -121,7 +152,9 @@ class SettingsTwoFragment : Fragment(R.layout.fragment_settings_two) {
         })
     }
 
-
+    /**
+     * Initialisiert den Retrofit Client und fügt die URL und den JSON Konverter hinzu
+     */
     fun initRetro2(): RetrofitApi {
         val api = Retrofit.Builder()
             .baseUrl(BASE_URL)

@@ -151,6 +151,11 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
 
     }
 
+    /**
+     * Die SignUp Methode legt einen neuen Nutzer an auf Basis der Eingaben im Screen.
+     * Die Methode greift die Eingaben ab und erzeugt einen Body [SignUp]. Ist die Anfrage mit
+     * dem Server erfolgreich, wird ein TOAST erzeugt und dem User angezeigt.
+     */
     fun signUP(){
         //Client
         val api = initRetro2()
@@ -183,7 +188,9 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
             }
         })
     }
-
+    /**
+     * Initialisiert den Retrofit Client und fügt die URL und den JSON Konverter hinzu
+     */
     fun initRetro2(): RetrofitApi {
         val api = Retrofit.Builder()
             .baseUrl(BASE_URL)

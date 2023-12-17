@@ -31,9 +31,8 @@
             app:layout_constraintTop_toBottomOf="@+id/text_settings2_ueber"
             app:layout_constraintVertical_bias="0.248" />
 
-        <!--- Kein genauen Plan was das machen soll
-         werde noch nachfragen ob ich nochmal einen
-         Bildschirm dafür aufsetzen soll.-->
+        <!--- Die Funktion ist zeittechisch nicht vom Backend implementiert worden. Daher ist der Button ein Placebo und
+        führt ein Logout aus.-->
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_settings2_Kon_loeschen"
