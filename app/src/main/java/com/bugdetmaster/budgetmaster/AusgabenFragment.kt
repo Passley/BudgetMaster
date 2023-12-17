@@ -16,7 +16,7 @@ class AusgabenFragment : Fragment(R.layout.fragment_ausgaben) {
         super.onViewCreated(view, savedInstanceState)
 
 
-        view.findViewById<ImageButton>(R.id.BTN_TEST).setOnClickListener {
+        view.findViewById<Button>(R.id.BTN_TEST).setOnClickListener {
             //Toast.makeText(activity, "ERFOLGREICH", Toast.LENGTH_SHORT).show()
             //val action = AusgabenFragmentDirections.actionAusgabenFragmentToAusgabeErstellenFragment()
             //findNavController().navigate(action)
