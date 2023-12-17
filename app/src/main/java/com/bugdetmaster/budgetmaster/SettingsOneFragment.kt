@@ -13,9 +13,21 @@ import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.switchmaterial.SwitchMaterial
 import android.content.SharedPreferences
+import android.util.Log
+import android.widget.Button
 import androidx.activity.OnBackPressedCallback
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import com.bugdetmaster.budgetmaster.data.RetrofitApi
+import com.bugdetmaster.budgetmaster.data.account.getSavingsGoal
+import com.bugdetmaster.budgetmaster.data.account.getSavingsGoalResponse
+import com.bugdetmaster.budgetmaster.data.login.Login
+import com.bugdetmaster.budgetmaster.data.login.LoginResponse
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 
 const val KEY_DARK_MODE = "dark_mode"
@@ -30,6 +42,9 @@ class SettingsOneFragment : Fragment(R.layout.fragment_settings_one) {
          */
         lightDarkMode(view.findViewById<SwitchMaterial>(R.id.switch_LightDark))
 
+        /**
+         * Geht zum Fragment SettingsTwoFragment
+         */
         view.findViewById<TextView>(R.id.btn_kontosettings).setOnClickListener {
             val action = SettingsOneFragmentDirections.actionSettingsOneFragmentToSettingsTwoFragment()
             findNavController().navigate(action)

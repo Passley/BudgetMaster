@@ -88,8 +88,7 @@ class SettingsTwoFragment : Fragment(R.layout.fragment_settings_two) {
         }
     }
 
-
-    fun loginToLogOut(){
+    fun login(): RetrofitApi{
         //Client
         val api = initRetro2()
 
@@ -110,6 +109,10 @@ class SettingsTwoFragment : Fragment(R.layout.fragment_settings_two) {
                 Log.e(TAG, "Response Login: ${t.message}")
             }
         })
+        return api
+    }
+    fun loginToLogOut(){
+        val api = login()
         api.getLogout().enqueue(object: Callback<LogoutResponse>{
             override fun onResponse(
                 call: Call<LogoutResponse>,
@@ -127,7 +130,6 @@ class SettingsTwoFragment : Fragment(R.layout.fragment_settings_two) {
             }
         })
     }
-
 
     fun checkedLogin(){
         val api = initRetro2()
