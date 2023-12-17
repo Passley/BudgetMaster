@@ -58,4 +58,9 @@ class UebersichtFragment : Fragment(R.layout.fragment_uebersicht) {
         }, 200)
     }
 
+    fun getSavingsAndBalance(){
+
+    }
+
+
 }

@@ -22,8 +22,6 @@ class AusgabenFragment : Fragment(R.layout.fragment_ausgaben) {
             //findNavController().navigate(action)
         }
 
-           // val action = AusgabenFragmentDirections.actionAusgabenFragmentToAusgabeErstellenFragment()
-           // findNavController().navigate(action)
 
 
         /**

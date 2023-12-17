@@ -182,16 +182,10 @@
     <fragment
         android:id="@+id/ausgabeErstellenFragment"
         android:name="com.bugdetmaster.budgetmaster.AusgabeErstellenFragment"
-        android:label="AusgabeErstellenFragment" >
+        android:label="fragement_ausgaben_erstellen"
+        tools:layout="@layout/fragement_ausgaben_erstellen" >
         <action
             android:id="@+id/action_ausgabeErstellenFragment_to_ausgabenFragment"
             app:destination="@id/ausgabenFragment" />
-        <action
-            android:id="@+id/action_ausgabeErstellenFragment_to_ausgabenFragment2"
-            app:destination="@id/ausgabenFragment"
-            app:enterAnim="@anim/slide_in_left"
-            app:exitAnim="@anim/slide_out_right"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 </navigation>

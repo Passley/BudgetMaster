@@ -14,7 +14,7 @@
             android:id="@+id/text_sparplan"
             android:layout_width="150dp"
             android:layout_height="40dp"
-            android:text="Dein Sparplziel"
+            android:text="Dein Sparplan"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/text_sparplan_platzhalter"
