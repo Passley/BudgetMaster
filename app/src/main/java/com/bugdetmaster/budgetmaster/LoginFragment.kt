@@ -120,6 +120,17 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
          * Die findNavController Klasse führt dann die Route aus.
         */
         googleButton.setOnClickListener {
+
+            // Zeige die Navigationsleiste wieder an
+            activity?.findViewById<BottomNavigationView>(R.id.bottom_nav)?.visibility = View.VISIBLE
+
+            // Zeige die ActionBar wieder an
+            (requireActivity() as? AppCompatActivity)?.supportActionBar?.show()
+
+            // Zeige die Top-Bar wieder an
+            (requireActivity().findViewById(R.id.topAppBar) as? MaterialToolbar)?.visibility = View.VISIBLE
+            login()
+
             val action = LoginFragmentDirections.actionLoginFragmentToUebersichtFragment()
             findNavController().navigate(action)
         }

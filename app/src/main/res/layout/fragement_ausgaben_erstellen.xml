@@ -13,9 +13,9 @@
         <ScrollView
             android:layout_width="25dp"
             android:layout_height="728dp"
+            tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="385dp"
-            tools:layout_editor_absoluteY="1dp"
-            tools:ignore="MissingConstraints">
+            tools:layout_editor_absoluteY="1dp">
 
 
         </ScrollView>
@@ -119,9 +119,10 @@
             android:inputType="textMultiLine"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.467"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Eingabe_Beitrag"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.015" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/Button_Abbrechen_ausgabe"
