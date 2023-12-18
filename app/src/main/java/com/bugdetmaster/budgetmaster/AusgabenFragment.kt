@@ -38,13 +38,12 @@ class AusgabenFragment : Fragment(R.layout.fragment_ausgaben) {
 
 
         view.findViewById<Button>(R.id.BTN_TEST).setOnClickListener {
-            //Toast.makeText(activity, "ERFOLGREICH", Toast.LENGTH_SHORT).show()
-            //val action = AusgabenFragmentDirections.actionAusgabenFragmentToAusgabeErstellenFragment()
-            //findNavController().navigate(action)
+            val action=AusgabenFragmentDirections.actionAusgabenFragmentToAusgabeErstellenFragment()
+            findNavController().navigate(action)
         }
-        Thread{
-            readTransaction()
-        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object: OnBackPressedCallback(true){
+            override fun handleOnBackPressed() {}
+        })
 
 
         /**

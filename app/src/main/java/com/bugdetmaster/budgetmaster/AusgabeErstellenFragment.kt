@@ -6,12 +6,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class AusgabeErstellenFragment : Fragment(R.layout.fragement_ausgaben_erstellen) {
+
+    //Stellt den Abbrechen Button nach
+    lateinit var abbrechenAusgabeButton: Button
+    lateinit var ausgabeErstellenButton: Button
+    lateinit var ausgabeEditText: EditText
+    lateinit var ausgaeBeschreibungEditText: EditText
+    lateinit var ausgabeDatumEditText: EditText
+    lateinit var ausgabeBeitragEditText: EditText
+    lateinit var ausgabeKategorieEditText: EditText
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,20 +45,23 @@ class AusgabeErstellenFragment : Fragment(R.layout.fragement_ausgaben_erstellen)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        abbrechenAusgabeButton=view.findViewById(R.id.Button_Abbrechen_ausgabe)
+        ausgabeErstellenButton=view.findViewById(R.id.Button_Ausgabe_Erstellen)
+        ausgabeEditText=view.findViewById(R.id.Eingabe_Ausgabe)
+        ausgaeBeschreibungEditText=view.findViewById(R.id.Eingabe_Beschreibung)
+        ausgabeDatumEditText=view.findViewById(R.id.Eingabe_Datum)
+        ausgabeBeitragEditText=view.findViewById(R.id.Eingabe_Beitrag)
+        ausgabeKategorieEditText=view.findViewById(R.id.Kategorie)
 
-        /**
-         * Mit der kommenden Methode wird der Button "Ausgabe ertsellen" mit der ID Button_Ausgabe_Erstellen angesprochen.
-         * Dieser hat mit dem setClickListener-Methode die Aufgabe, den Benutzer auf das Fragment AusgabenFragment zu verweisen.
-         * Der Navigationsgraph kennt alle möglichen Routen und die action Variable erstellt die Route vom aktuellen Fragment zum AusgabenFragment.
-         * Die findNavController Klasse führt dann die Route aus.
-         */
-        view.findViewById<Button>(R.id.button_sparplan_erstellen1).setOnClickListener {
-            //val action = AusgabeErstellenFragmentDirections.actionAusgabeErstellenFragmentToAusgabenFragment()
-            //findNavController().navigate(action)
+        ausgabeErstellenButton.setOnClickListener{
+
+            val action=AusgabeErstellenFragmentDirections.actionAusgabeErstellenFragmentToAusgabenFragment()
+            findNavController().navigate(action)
         }
 
-        view.findViewById<Button>(R.id.button_sparplan_loeschen).setOnClickListener {
-
+        abbrechenAusgabeButton.setOnClickListener {
+            val action=AusgabeErstellenFragmentDirections.actionAusgabeErstellenFragmentToAusgabenFragment()
+            findNavController().navigate(action)
         }
     }
 

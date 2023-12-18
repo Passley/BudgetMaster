@@ -10,6 +10,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ScrollView
+            android:layout_width="25dp"
+            android:layout_height="728dp"
+            tools:layout_editor_absoluteX="385dp"
+            tools:layout_editor_absoluteY="1dp"
+            tools:ignore="MissingConstraints">
+
+
+        </ScrollView>
+
         <EditText
             android:id="@+id/Eingabe_Ausgabe"
             android:layout_width="wrap_content"
@@ -22,7 +32,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_Sparplan_erstellen"
+            app:layout_constraintTop_toBottomOf="@+id/text_Ausgabe_erstellen"
             app:layout_constraintVertical_bias="0.0" />
 
         <EditText
@@ -86,7 +96,7 @@
             app:layout_constraintVertical_bias="0.297" />
 
         <TextView
-            android:id="@+id/text_Sparplan_erstellen"
+            android:id="@+id/text_Ausgabe_erstellen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ausgabe erstellen"
@@ -112,6 +122,22 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Eingabe_Beitrag"
             app:layout_constraintVertical_bias="0.0" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/Button_Abbrechen_ausgabe"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button_design_2"
+            android:text="Abbrechen"
+            android:textAllCaps="false"
+            android:textColor="@color/darkmode_schriftfarbe1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Button_Ausgabe_Erstellen"
+            app:layout_constraintVertical_bias="0.442"
+            tools:ignore="MissingConstraints" />
+        " />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
