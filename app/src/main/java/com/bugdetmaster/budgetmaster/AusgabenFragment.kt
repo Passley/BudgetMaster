@@ -28,6 +28,10 @@ class AusgabenFragment : Fragment(R.layout.fragment_ausgaben) {
     //Die URL des Servers
     val BASE_URL = "http://85.215.77.230/"
 
+    /**
+     * Ermöglicht dem Code, dass Methoden in der Klasse aufgerufen werden können, ohne das eine Instanz erstellt wurde.
+     * Ähnelt der Static Methode aus Java.
+     */
     companion object{
         lateinit var Api: Retrofit
     }

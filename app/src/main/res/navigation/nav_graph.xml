@@ -63,6 +63,9 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_settingsOneFragment_to_tutorialFragment"
+            app:destination="@id/tutorialFragment" />
     </fragment>
     <fragment
         android:id="@+id/ausgabenFragment"
@@ -187,5 +190,14 @@
         <action
             android:id="@+id/action_ausgabeErstellenFragment_to_ausgabenFragment"
             app:destination="@id/ausgabenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tutorialFragment"
+        android:name="com.bugdetmaster.budgetmaster.TutorialFragment"
+        android:label="fragment_tutorial"
+        tools:layout="@layout/fragment_tutorial" >
+        <action
+            android:id="@+id/action_tutorialFragment_to_settingsOneFragment"
+            app:destination="@id/settingsOneFragment" />
     </fragment>
 </navigation>

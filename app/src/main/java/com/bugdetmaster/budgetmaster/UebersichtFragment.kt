@@ -50,7 +50,7 @@ class UebersichtFragment : Fragment(R.layout.fragment_uebersicht) {
         progressBar = view.findViewById(R.id.progress_bar)
         progressText = view.findViewById(R.id.progressbar_text)
 
-        progress(13000,20000)
+        progress(12150,18000)
         getAccountDetails()
         //Den Zurückknopf für das aktuelle Fragment deaktivieren. Damit der User nicht mehr in den Login/SignUp Screen kommt.
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object: OnBackPressedCallback(true){

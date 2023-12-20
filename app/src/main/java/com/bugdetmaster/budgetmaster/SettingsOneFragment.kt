@@ -61,6 +61,12 @@ class SettingsOneFragment : Fragment(R.layout.fragment_settings_one) {
             updateDarkMode(isChecked)
         }
 
+        view.findViewById<Button>(R.id.btn_tutorial).setOnClickListener {
+            val action = SettingsOneFragmentDirections.actionSettingsOneFragmentToTutorialFragment()
+            findNavController().navigate(action)
+
+        }
+
         //Den Zurückknopf für das aktuelle Fragment deaktivieren. Damit der User nicht mehr in den Login/SignUp Screen kommt.
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object: OnBackPressedCallback(true){
             override fun handleOnBackPressed() {}
@@ -76,6 +82,7 @@ class SettingsOneFragment : Fragment(R.layout.fragment_settings_one) {
 
         return super.onCreateView(inflater, container, savedInstanceState)
     }
+
     /**
      * Die Methode [lightDarkMode] fragt ab, in welchem Modus sich das Handy aktuell befindet. Je nach Modus
      * wird das Bild-Objekt [lightDark_image] und der Switch angepasst. Im Lightmode ist das [lightDark_image]
