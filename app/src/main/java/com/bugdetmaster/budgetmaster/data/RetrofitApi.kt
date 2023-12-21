@@ -46,7 +46,7 @@ import retrofit2.http.POST
 /**
  * Dieses Interface repräsentiert alle Schnittstellen, die durch den Server angesprochen werden können.
  * Jede Methode repräsentiert ein Funktion die aufgerufen werden kann. Dafür wird die Art des Ansprechens (POST/GET)
- * sowie die Eingabe und Ausgabe vorher definiert.
+ * sowie die Eingabe und Ausgabe vorher definiert. Die Datenklassen definieren die Eingabe- und Ausgabevariablen.
  */
 interface RetrofitApi {
 

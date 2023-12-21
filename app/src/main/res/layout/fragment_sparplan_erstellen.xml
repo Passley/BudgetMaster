@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- Das Sparplan-Erstellen Fragment. Die Datei bestimmt das Aussehen des Fragments.-->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SparplanErstellenFragment">
@@ -41,13 +43,13 @@
             app:layout_constraintVertical_bias="0.022" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:background="@drawable/button_design_2"
-            android:textColor="@color/darkmode_schriftfarbe1"
-            android:textAllCaps="false"
             android:id="@+id/Button_Sparplan_Erstellen"
             android:layout_width="150dp"
             android:layout_height="40dp"
+            android:background="@drawable/button_design_2"
             android:text="Sparplan erstellen"
+            android:textAllCaps="false"
+            android:textColor="@color/darkmode_schriftfarbe1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
@@ -56,13 +58,13 @@
             app:layout_constraintVertical_bias="0.089" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:background="@drawable/button_design_2"
-            android:textColor="@color/darkmode_schriftfarbe1"
-            android:textAllCaps="false"
             android:id="@+id/button_Sparplan_Abbrechen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/button_design_2"
             android:text="Abbrechen"
+            android:textAllCaps="false"
+            android:textColor="@color/darkmode_schriftfarbe1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"

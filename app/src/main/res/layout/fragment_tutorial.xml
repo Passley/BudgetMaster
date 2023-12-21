@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- Das Tutorial Fragment. Die Datei bestimmt das Aussehen des Fragments.-->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,57 +8,62 @@
     android:layout_height="match_parent"
     tools:context=".TutorialFragment">
 
-
-
-
-    <ImageView
-        android:id="@+id/Bild_Tutorial1"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:src="@tools:sample/backgrounds/scenic" />
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/Bild_Tutorial2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:src="@tools:sample/backgrounds/scenic" />
+        <ImageView
+            android:id="@+id/Bild_Tutorial1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:visibility="visible"
+            tools:src="@drawable/bild1" />
 
-    <ImageView
-        android:id="@+id/Bild_Tutorial3"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:src="@tools:sample/backgrounds/scenic" />
+        <LinearLayout
+            android:id="@+id/linear_layout_Tutorial"
+            android:layout_width="310dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/tutorial_text_background"
+            android:gravity="left"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.859">
 
-    <ImageView
-        android:id="@+id/Bild_Tutorial4"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:src="@tools:sample/backgrounds/scenic" />
+            <TextView
+                android:id="@+id/text_Tutorial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Willkommen! Lass uns mal durch die App gehen."
+                android:textColor="#210363"
+                android:textSize="18dp" />
+        </LinearLayout>
 
-    <ImageView
-        android:id="@+id/Bild_Tutorial5"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:src="@tools:sample/backgrounds/scenic" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floating_action_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="16dp"
+            android:backgroundTint="@color/lightmode_darstellung1"
+            android:clickable="true"
+            android:contentDescription="Flying Button"
+            android:focusable="true"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/Bild_Tutorial1"
+            app:layout_constraintStart_toEndOf="@+id/linear_layout_Tutorial"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.878"
+            app:srcCompat="@drawable/icon_pfeil" />
 
-    <ImageView
-        android:id="@+id/Bild_Tutorial6"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:src="@tools:sample/backgrounds/scenic" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floating_action_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        android:layout_margin="16dp"
-        android:backgroundTint="@color/lightmode_darstellung1"
-        android:clickable="true"
-        android:contentDescription="Flying Button"
-        android:focusable="true"
-        app:srcCompat="@drawable/icon_pfeil"
-        android:visibility="visible"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </FrameLayout>

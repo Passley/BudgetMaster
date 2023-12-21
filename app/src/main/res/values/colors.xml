@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Alle öfter benutzten Farben werden hier hinterlegt.-->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="lightmode_background">#f2f2f2</color>

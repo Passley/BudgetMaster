@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- Das Konto-löschen Fragment. Die Datei bestimmt das Aussehen des Fragments.-->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -28,14 +30,14 @@
             app:layout_constraintVertical_bias="0.319" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:textAllCaps="false"
-            android:background="@drawable/button_design_2"
-            android:textColor="@color/darkmode_schriftfarbe1"
             android:id="@+id/btn_kontoloesch_bestaetigen"
             android:layout_width="200dp"
             android:layout_height="45dp"
+            android:background="@drawable/button_design_2"
             android:elevation="40dp"
             android:text="Konto löschen"
+            android:textAllCaps="false"
+            android:textColor="@color/darkmode_schriftfarbe1"
             app:icon="@drawable/icon_settings"
             app:iconPadding="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
