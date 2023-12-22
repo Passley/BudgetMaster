@@ -14,7 +14,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class AusgabeErstellenFragment : Fragment(R.layout.fragement_ausgaben_erstellen) {
 
-    //Stellt den Abbrechen Button nach
+    // Deklaration der UI-Elemente
     lateinit var abbrechenAusgabeButton: Button
     lateinit var ausgabeErstellenButton: Button
     lateinit var ausgabeEditText: EditText
@@ -23,14 +23,12 @@ class AusgabeErstellenFragment : Fragment(R.layout.fragement_ausgaben_erstellen)
     lateinit var ausgabeBeitragEditText: EditText
     lateinit var ausgabeKategorieEditText: EditText
 
-
+    // Hier wird die View für das Fragment erstellt
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        /**
-         * Verstecke die Navigationsleiste, wenn dieses Fragment angezeigt wird
-         */
+        // Verstecke die Bottom Navigation View, wenn dieses Fragment angezeigt wird
         activity?.findViewById<BottomNavigationView>(R.id.bottom_nav)?.visibility = View.GONE
 
         // Verstecke die ActionBar (Top-Bar), wenn dieses Fragment angezeigt wird
@@ -42,33 +40,36 @@ class AusgabeErstellenFragment : Fragment(R.layout.fragement_ausgaben_erstellen)
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
+    // Hier wird die Logik für die Interaktion mit den UI-Elementen festgelegt
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        abbrechenAusgabeButton=view.findViewById(R.id.Button_Abbrechen_ausgabe)
-        ausgabeErstellenButton=view.findViewById(R.id.Button_Ausgabe_Erstellen)
-        ausgabeEditText=view.findViewById(R.id.Eingabe_Ausgabe)
-        ausgaeBeschreibungEditText=view.findViewById(R.id.Eingabe_Beschreibung)
-        ausgabeDatumEditText=view.findViewById(R.id.Eingabe_Datum)
-        ausgabeBeitragEditText=view.findViewById(R.id.Eingabe_Beitrag)
-        ausgabeKategorieEditText=view.findViewById(R.id.Kategorie)
+        // Initialisiere die UI-Elemente durch ihre IDs in der erstellten View
+        abbrechenAusgabeButton = view.findViewById(R.id.Button_Abbrechen_ausgabe)
+        ausgabeErstellenButton = view.findViewById(R.id.Button_Ausgabe_Erstellen)
+        ausgabeEditText = view.findViewById(R.id.Eingabe_Ausgabe)
+        ausgaeBeschreibungEditText = view.findViewById(R.id.Eingabe_Beschreibung)
+        ausgabeDatumEditText = view.findViewById(R.id.Eingabe_Datum)
+        ausgabeBeitragEditText = view.findViewById(R.id.Eingabe_Beitrag)
+        ausgabeKategorieEditText = view.findViewById(R.id.Kategorie)
 
+        // Setze die OnClickListener für die Buttons
         ausgabeErstellenButton.setOnClickListener{
-
-            val action=AusgabeErstellenFragmentDirections.actionAusgabeErstellenFragmentToAusgabenFragment()
+            val action = AusgabeErstellenFragmentDirections.actionAusgabeErstellenFragmentToAusgabenFragment()
             findNavController().navigate(action)
         }
 
         abbrechenAusgabeButton.setOnClickListener {
-            val action=AusgabeErstellenFragmentDirections.actionAusgabeErstellenFragmentToAusgabenFragment()
+            val action = AusgabeErstellenFragmentDirections.actionAusgabeErstellenFragmentToAusgabenFragment()
             findNavController().navigate(action)
         }
     }
 
+    // Wird aufgerufen, wenn das Fragment zerstört wird
     override fun onDestroyView() {
         super.onDestroyView()
 
-        // Zeige die Navigationsleiste wieder an, wenn das Fragment zerstört wird
+        // Zeige die Bottom Navigation View wieder an, wenn das Fragment zerstört wird
         activity?.findViewById<BottomNavigationView>(R.id.bottom_nav)?.visibility = View.VISIBLE
 
         // Zeige die ActionBar (Top-Bar) wieder an, wenn das Fragment zerstört wird

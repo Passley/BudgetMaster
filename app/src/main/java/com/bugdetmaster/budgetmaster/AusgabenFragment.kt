@@ -22,53 +22,46 @@ import retrofit2.converter.gson.GsonConverterFactory
 import kotlin.math.log
 
 class AusgabenFragment : Fragment(R.layout.fragment_ausgaben) {
-    //Tag für die Konsole
+
+    // Tag für die Verwendung in der Konsole
     final val TAG = "BUDGETMASTER"
 
-    //Die URL des Servers
+    // Die Basis-URL des Servers
     val BASE_URL = "http://85.215.77.230/"
 
     /**
-     * Ermöglicht dem Code, dass Methoden in der Klasse aufgerufen werden können, ohne das eine Instanz erstellt wurde.
-     * Ähnelt der Static Methode aus Java.
+     * Companion-Objekt, das es ermöglicht, Methoden in der Klasse aufzurufen,
+     * ohne eine Instanz erstellen zu müssen. Ähnlich einer Static-Methode in Java.
      */
     companion object{
         lateinit var Api: Retrofit
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+        // Klick-Ereignis für den Test-Button, um zum Fragment AusgabeErstellenFragment zu navigieren
         view.findViewById<Button>(R.id.BTN_TEST).setOnClickListener {
-            val action=AusgabenFragmentDirections.actionAusgabenFragmentToAusgabeErstellenFragment()
+            val action = AusgabenFragmentDirections.actionAusgabenFragmentToAusgabeErstellenFragment()
             findNavController().navigate(action)
         }
+
+        // Den Zurückknopf für das aktuelle Fragment deaktivieren, um den Benutzer im aktuellen Flow zu halten
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object: OnBackPressedCallback(true){
             override fun handleOnBackPressed() {}
         })
 
-
-        /**
-         * Mit der kommenden Methode wird der Button "Hinzufügen" mit der ID addAusgabeButton angesprochen.
-         * Dieser hat mit dem setClickListener-Methode die Aufgabe, den Benutzer auf das Fragment AusgabeErstellenFragment zu verweisen.
-         * Der Navigationsgraph kennt alle möglichen Routen und die action Variable erstellt die Route vom aktuellen Fragment zum AusgabeErstellenFragment.
-         * Die findNavController Klasse führt dann die Route aus.
-         */
-
-        //Den Zurückknopf für das aktuelle Fragment deaktivieren. Damit der User nicht mehr in den Login/SignUp Screen kommt.
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object: OnBackPressedCallback(true){
-            override fun handleOnBackPressed() {}
-        })
+        // Methode, um eine Transaktion zu lesen
+        readTransaction()
     }
 
+    // Methode, um eine Transaktion zu lesen
     fun readTransaction(){
-        val api = login()
-
+        val api = login() // API-Instanz erstellen
 
         val data2: readTransaction = com.bugdetmaster.budgetmaster.data.transaction.readTransaction(48)
 
+        // API-Anfrage, um Transaktionen abzurufen
         api.ReadTransaction(data2).enqueue(object : Callback<readTransactionResponse>{
             override fun onResponse(
                 call: Call<readTransactionResponse>,
@@ -87,15 +80,16 @@ class AusgabenFragment : Fragment(R.layout.fragment_ausgaben) {
         })
     }
 
+    // Methode, um sich am Server anzumelden
     fun login(): RetrofitApi {
-        //Client
+        // Retrofit API-Instanz initialisieren
         val api = initRetro2()
 
         val password = "1234"
         val username = "AndroidPass"
-        //Erstellen des Datenobjekts
-        val data: Login = Login(username, password)
+        val data: Login = Login(username, password) // Login-Daten erstellen
 
+        // API-Anfrage für die Anmeldung
         api.setLogin(data).enqueue(object : Callback<LoginResponse> {
 
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
@@ -111,6 +105,7 @@ class AusgabenFragment : Fragment(R.layout.fragment_ausgaben) {
         return api
     }
 
+    // Methode, um eine Retrofit API-Instanz zu initialisieren
     fun initRetro2(): RetrofitApi {
         val api = Retrofit.Builder()
             .baseUrl(BASE_URL)
@@ -119,4 +114,6 @@ class AusgabenFragment : Fragment(R.layout.fragment_ausgaben) {
             .create(RetrofitApi::class.java)
         return api
     }
+}
+
 }
