@@ -25,22 +25,23 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class SettingsTwoFragment : Fragment(R.layout.fragment_settings_two) {
-    //Tag für die Konsole
+    // Tag für die Konsole
     final val TAG = "BUDGETMASTER"
 
-    //Die URL des Servers
+    // Die URL des Servers
     val BASE_URL = "http://85.215.77.230/"
 
-    companion object{
+    companion object {
         lateinit var Api: Retrofit
     }
 
-    //Stellt den Zurück Button nach
+    // Stellt den Zurück-Button nach
     lateinit var zurückButton: Button
-    //Stellt den Abmelden Button nach
+    // Stellt den Abmelden-Button nach
     lateinit var abmeldenButton: Button
-    //Stellt den Kontoloeschen Button nach
+    // Stellt den Konto Löschen-Button nach
     lateinit var kontoloeschenButton: Button
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -54,11 +55,10 @@ class SettingsTwoFragment : Fragment(R.layout.fragment_settings_two) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //Verbindet Variablen mit Objekten in Layout
+        // Verbindet Variablen mit Objekten im Layout
         zurückButton = view.findViewById(R.id.sett_abbrechen)
         abmeldenButton = view.findViewById(R.id.btn_settings2_Abmelden)
         kontoloeschenButton = view.findViewById(R.id.btn_settings2_Kon_loeschen)
-
 
         abmeldenButton.setOnClickListener {
             loginToLogOut()
@@ -70,7 +70,6 @@ class SettingsTwoFragment : Fragment(R.layout.fragment_settings_two) {
             val action = SettingsTwoFragmentDirections.actionSettingsTwoFragmentToKontoLoeschen()
             findNavController().navigate(action)
         }
-
 
         zurückButton.setOnClickListener {
             // Zeige die Navigationsleiste wieder an
@@ -88,19 +87,19 @@ class SettingsTwoFragment : Fragment(R.layout.fragment_settings_two) {
         }
     }
 
-    fun login(): RetrofitApi{
-        //Client
+    // Funktion für die Anmeldung des Benutzers
+    fun login(): RetrofitApi {
+        // Client-Initialisierung
         val api = initRetro2()
 
         val password = "AndroidPass"
         val username = "1234"
-        //Erstellen des Datenobjekts
+        // Erstellen des Datenobjekts für die Anmeldung
         val data: Login = Login(username, password)
 
-        api.setLogin(data).enqueue(object : Callback<LoginResponse>{
-
+        api.setLogin(data).enqueue(object : Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-                if (response.isSuccessful){
+                if (response.isSuccessful) {
                     Log.i(TAG, "Erfolgreich angemeldet...")
                 }
             }
@@ -111,14 +110,13 @@ class SettingsTwoFragment : Fragment(R.layout.fragment_settings_two) {
         })
         return api
     }
-    fun loginToLogOut(){
+
+    // Funktion für die Abmeldung des Benutzers
+    fun loginToLogOut() {
         val api = login()
-        api.getLogout().enqueue(object: Callback<LogoutResponse>{
-            override fun onResponse(
-                call: Call<LogoutResponse>,
-                response: Response<LogoutResponse>
-            ) {
-                if (response.isSuccessful){
+        api.getLogout().enqueue(object : Callback<LogoutResponse> {
+            override fun onResponse(call: Call<LogoutResponse>, response: Response<LogoutResponse>) {
+                if (response.isSuccessful) {
                     response.body()?.let {
                         Toast.makeText(activity, "${it.msg}", Toast.LENGTH_SHORT).show()
                     }
@@ -126,30 +124,31 @@ class SettingsTwoFragment : Fragment(R.layout.fragment_settings_two) {
             }
 
             override fun onFailure(call: Call<LogoutResponse>, t: Throwable) {
-                Log.i(TAG,"${t.message}")
+                Log.i(TAG, "${t.message}")
             }
         })
     }
 
-    fun checkedLogin(){
+    // Funktion für die Überprüfung des Benutzer-Logins
+    fun checkedLogin() {
         val api = initRetro2()
 
-        api.getCheckedLoggedIn().enqueue(object : Callback<checkedLoggedInResponse>{
+        api.getCheckedLoggedIn().enqueue(object : Callback<checkedLoggedInResponse> {
             override fun onResponse(
                 call: Call<checkedLoggedInResponse>,
                 response: Response<checkedLoggedInResponse>
             ) {
-               if (response.isSuccessful){
+                if (response.isSuccessful) {
 
-                   response.body()?.let {
-                       Toast.makeText(activity,"${it.IsLoggedIn}",Toast.LENGTH_SHORT).show()
-                   }
-               }
+                    response.body()?.let {
+                        Toast.makeText(activity, "${it.IsLoggedIn}", Toast.LENGTH_SHORT).show()
+                    }
+                }
             }
 
             override fun onFailure(call: Call<checkedLoggedInResponse>, t: Throwable) {
                 Log.e(TAG, "FEHLSCHLAG CHECKEDLOGIN: FALSE")
-                Log.e(TAG,"${t.message}")
+                Log.e(TAG, "${t.message}")
             }
         })
     }
