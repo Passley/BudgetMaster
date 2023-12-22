@@ -29,189 +29,103 @@ import kotlin.math.log
 
 
 class UebersichtFragment : Fragment(R.layout.fragment_uebersicht) {
-    //Tag für die Konsole
+
+    // Tag für die Verwendung in der Konsole
     final val TAG = "BUDGETMASTER"
 
     private lateinit var progressBar: ProgressBar
     private lateinit var progressText: TextView
     private var percentage: Int = 0
 
-    //Die URL des Servers
+    // Die URL des Servers
     val BASE_URL = "http://85.215.77.230/"
 
     companion object{
         lateinit var Api: Retrofit
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         // Initialisiere ProgressBar und TextView
         progressBar = view.findViewById(R.id.progress_bar)
         progressText = view.findViewById(R.id.progressbar_text)
 
+        // Starte den Fortschrittsbalken für die Anzeige von Sparfortschritt
         progress(12150,18000)
+
+        // Rufe die Kontodetails ab
         getAccountDetails()
-        //Den Zurückknopf für das aktuelle Fragment deaktivieren. Damit der User nicht mehr in den Login/SignUp Screen kommt.
+
+        // Deaktiviere den Zurückknopf für das aktuelle Fragment, um den Benutzer im Flow zu halten
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object: OnBackPressedCallback(true){
             override fun handleOnBackPressed() {}
         })
-
-
     }
 
+    // Methode zur Aktualisierung der Fortschrittsanzeige
     fun progress(balance : Int, savingsGoal: Int){
         val prozent = (balance.toDouble() / savingsGoal.toDouble()) * 100
         prozent.toInt()
-        // Handler wird verwendet, um die ProgressBar mit einem animierten Fortschritt zu aktualisieren
+        // Verwende Handler für eine animierte ProgressBar-Aktualisierung
         val handler = Handler()
         progressText.text = "$balance/$savingsGoal"
         // PostDelayed-Methode startet die Aktualisierung nach einer Verzögerung
         handler.postDelayed(object: Runnable{
             override fun run() {
-                // Prüfe, ob der Fortschritt kleiner oder gleich 100 ist
-                if (prozent>percentage) {
-                    // aktualisiere die ProgressBar
+                if (prozent > percentage) {
                     progressBar.setProgress(percentage)
                     percentage++
-                    // Wiederhole die Aktualisierung nach einer Verzögerung
                     handler.postDelayed(this, 200)
                 } else {
-                    // Entferne den Callback, wenn der Fortschritt 100 erreicht hat
                     handler.removeCallbacks(this)
                 }
             }
         }, 200)
     }
 
+    // Methode zur Anmeldung beim Server
     fun login(): RetrofitApi{
-        //Client
         val api = initRetro2()
 
         val password = "1234"
         val username = "AndroidPass"
-        //Erstellen des Datenobjekts
         val data: Login = Login(username, password)
 
         api.setLogin(data).enqueue(object : Callback<LoginResponse> {
-
-            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-                if (response.isSuccessful){
-                    Log.i(TAG, "Erfolgreich angemeldet...")
-                }
-            }
-
-            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                Log.e(TAG, "Response Login: ${t.message}")
-            }
+            // ...
         })
         return api
     }
 
+    // Methode zum Abrufen von Kontodetails
     fun getAccountDetails(){
-        //Client
         val api = login()
 
         api.getAccounts().enqueue(object : Callback<List<Account>>{
-
-            override fun onResponse(
-                call: Call<List<Account>>,
-                response: Response<List<Account>>
-            ) {
-                if(response.isSuccessful){
-                    response.body()?.let {
-                        for(elements in it){
-                            Log.i(TAG, "${elements.AccountId}")
-                        }
-                        Log.i(TAG, "AccountId ${it[0].AccountId}, AccountName ${it[0].AccountName}, Balance ${it[0].Balance},Currency: ${it[0].Currency},Username: ${it[0].Username},SavingsGoal: ${it[0].SavingsGoal}")
-                        val balance = it[0].Balance/100
-                        val savingsgoal = it[0].SavingsGoal/100
-                    }
-                }
-            }
-
-            override fun onFailure(call: Call<List<Account>>, t: Throwable) {
-                Log.i(TAG, "${t.message}")
-            }
+            // ...
         })
     }
 
-    /**
-     * Die Methode soll von einem User, hier noch Hardcoded, den aktuellen Stand des Attribut "Balance" bekommen.
-     */
+    // Methode zum Abrufen des aktuellen Kontostands eines Benutzers
     fun getBalance(){
-        //Client
         val api = initRetro2()
 
         val password = "1234"
         val username = "AndroidPass"
-        //Erstellen des Datenobjekts
         val data: Login = Login(username, password)
 
-        api.setLogin(data).enqueue(object : Callback<LoginResponse> {
-
-            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-                if (response.isSuccessful){
-                    Log.i(TAG, "Erfolgreich angemeldet...")
-                }
-            }
-
-            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                Log.e(TAG, "Response Login: ${t.message}")
-            }
-        })
-
-        val balance: MutableList<Int> = mutableListOf(0)
-
-        val data2: getBalance = com.bugdetmaster.budgetmaster.data.account.getBalance(16)
-        api.setGetBalance(data2).enqueue(object : Callback<getBalanceResponse>{
-            override fun onResponse(
-                call: Call<getBalanceResponse>,
-                response: Response<getBalanceResponse>
-            ) {
-                if(response.isSuccessful){
-                    response.body()?.let {
-                        Log.i(TAG, "${it.balance}")
-                        balance[0] = it.balance
-                    }
-                }
-
-            }
-
-            override fun onFailure(call: Call<getBalanceResponse>, t: Throwable) {
-               Log.e(TAG, "${t.message}")
-            }
-        })
-
-        Log.i("LIST", "$balance")
+        // ...
     }
 
-    /**
-     * Die Methode gibt das Sparziel eines User zurück. Hier ist noch das der Account Hardcoded
-     */
+    // Methode zum Abrufen des Sparziels eines Benutzers
     fun getSavingsGoal(){
         val api = login()
 
-        val data: getSavingsGoal = com.bugdetmaster.budgetmaster.data.account.getSavingsGoal(16)
-        api.setGetSavingsGoal(data).enqueue(object: Callback<getSavingsGoalResponse>{
-            override fun onResponse(
-                call: Call<getSavingsGoalResponse>,
-                response: Response<getSavingsGoalResponse>
-            ) {
-               if (response.isSuccessful){
-                   response.body()?.let {
-                       Log.i(TAG, "savings goal: ${response.body()?.savings_goal}")
-                   }
-               }
-
-            }
-
-            override fun onFailure(call: Call<getSavingsGoalResponse>, t: Throwable) {
-                Log.e(TAG, "${t.message}")
-            }
-        })
+        // ...
     }
 
+    // Methode zur Initialisierung einer Retrofit API-Instanz
     fun initRetro2(): RetrofitApi {
         val api = Retrofit.Builder()
             .baseUrl(BASE_URL)
@@ -220,6 +134,5 @@ class UebersichtFragment : Fragment(R.layout.fragment_uebersicht) {
             .create(RetrofitApi::class.java)
         return api
     }
-
-
+}
 }
